@@ -12,7 +12,7 @@ h1 span { display: block; font-size: 18px; }
 p { margin: 0 0 20px; }
 footer { font-size: 14px; text-align: center; margin-top: 50px; border-top: 1px solid #d2d2d2; padding-top: 50px; }
 
-.twitter-tweet { max-width: 600px; margin: auto; }
+.twitter-tweet { max-width: 600px; margin: 150px auto 0; clear: both; }
 
 
 a {
