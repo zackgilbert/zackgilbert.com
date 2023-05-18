@@ -123,7 +123,6 @@ function MobileNavigation(props) {
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
                 <MobileNavItem href="/">Home</MobileNavItem>
                 <MobileNavItem href="/about">About</MobileNavItem>
-                <MobileNavItem href="/projects">Projects</MobileNavItem>
                 <MobileNavItem href="/manual">User Manual</MobileNavItem>
               </ul>
             </nav>
@@ -164,7 +163,6 @@ function DesktopNavigation(props) {
         <NavItem href="/">Home</NavItem>
         <NavItem href="/about">About</NavItem>
         {/*<NavItem href="/articles">Articles</NavItem>*/}
-        <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/manual">User Manual</NavItem>
       </ul>
     </nav>
