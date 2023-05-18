@@ -33,6 +33,8 @@ import projectLeaderBird from '@/images/logos/leaderbird.svg'
 import projectBillQ from '@/images/logos/billq.png'
 import projectProjectGarden from '@/images/logos/projectgarden.svg'
 
+
+const FATHOM_ID = process.env.NEXT_PUBLIC_FATHOM_ID
 const projects = [
   {
     name: 'billQ',
@@ -408,6 +410,7 @@ export default function Home({ articles }) {
           </div>
         </div>
       </Container>
+      <script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_ID} defer></script>
     </>
   )
 }
