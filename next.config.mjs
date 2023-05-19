@@ -18,7 +18,6 @@ const nextConfig = {
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
-  loader: '@mdx-js/loader',
   options: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypePrism],
