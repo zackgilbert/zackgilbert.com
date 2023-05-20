@@ -33,6 +33,18 @@ import projectLeaderBird from '@/images/logos/leaderbird.svg'
 import projectBillQ from '@/images/logos/billq.png'
 import projectProjectGarden from '@/images/logos/projectgarden.svg'
 
+import paulJarvisPhoto from '@/images/photos/pauljarvis.jpg'
+import kpPhoto from '@/images/photos/kp.jpg'
+import allenPennPhoto from '@/images/photos/allenpenn.jpg'
+import kelseyPhoto from '@/images/photos/kelsey.jpg'
+import miguelPhoto from '@/images/photos/miguel.jpg'
+import emilyPhoto from '@/images/photos/emily.jpg'
+import bonvivantCakesPhoto from '@/images/photos/bonvivantcakes.png'
+import sethKravitzPhoto from '@/images/photos/sethkravitz.jpg'
+import jessePhoto from '@/images/photos/jesse.jpg'
+import meiPhoto from '@/images/photos/mei.jpg'
+import lauradPhoto from '@/images/photos/laurad.jpg'
+
 
 const FATHOM_ID = process.env.NEXT_PUBLIC_FATHOM_ID
 const projects = [
@@ -77,6 +89,89 @@ const projects = [
       'A place for makers to showcase and grow their projects from idea to launch. Built in 2 weeks, in Sinatra (Ruby).',
     link: { href: 'https://projectgarden.co/zackgilbert', label: 'projectgarden.co' },
     logo: projectProjectGarden,
+  },
+]
+
+const testimonials = [
+  {
+    body: 'just saying, @zackgilbert is the best cofounder a boy could have.',
+    author: {
+      name: 'Paul Jarvis',
+      handle: '',
+      imageUrl: paulJarvisPhoto
+    },
+  },
+  {
+    body: 'Zack’s an incredibly talented developer but what makes him stand out is his hyper collaborative DNA, high velocity of shipping and a strong sense of design. I loved working with Zack on the SaaS app he built for me so I could get to revenue very quickly. I’d 100% recommend him to any other ambitious founder.',
+    author: {
+      name: 'KP',
+      handle: 'thisiskp_',
+      imageUrl: kpPhoto,
+    },
+  },
+  {
+    body: 'It’s time to build that idea you keep coming back to! @zackgilbert is obviously my MVP, but now he can build yours too.',
+    author: {
+      name: 'Kelsey Kreiling',
+      handle: 'KelseyLK',
+      imageUrl: kelseyPhoto
+    }
+  },
+  {
+    body: 'Working with Zack was an absolute dream. He took my idea and vision for a new online scheduling tool for my cake shop and turned it into an easy-to-use solution that was exactly what I needed. Less friction at checkout led to higher sales, and his streamlined scheduling system saved me stress AND administrative costs. Total game changer for my business!',
+    author: {
+      name: 'Emily Nejad',
+      handle: '',
+      imageUrl: emilyPhoto
+    },
+  },
+  {
+    body: 'I couldn’t imagine a better person to partner with if you want to test bringing an idea to life…trying to come up with something we can work on together!',
+    author: {
+      name: 'Allen Penn',
+      handle: 'allenpenn',
+      imageUrl: allenPennPhoto
+    }
+  },
+  {
+    body: 'For everyone that wants to build an MVP, strongly recommend Zack as a sharp fast and great developer',
+    author: {
+      name: 'Miguel Muñoz Duarte',
+      handle: 'mmduarte',
+      imageUrl: miguelPhoto
+    }
+  },
+  {
+    body: 'Anyone getting Zack for a month is lucky. He’s the unaffordable and unhirable combo of talented designer meets talented engineer meets experienced entrepreneur.',
+    author: {
+      name: 'Seth Kravitz',
+      handle: 'sethkravitz',
+      imageUrl: sethKravitzPhoto
+    },
+  },
+  {
+    body: 'For anyone who is looking to spin up a high quality mvp super quick @zackgilbert is your guy! He’s been doing this for 20 years....and now he’s sharing his talents with you.',
+    author: {
+      name: 'Jesse Link 💭',
+      handle: 'jesselinkthinks',
+      imageUrl: jessePhoto
+    }
+  },
+  {
+    body: 'Stop thinking. Get your MVP out there. @zackgilbert is incredible if you’re looking to get shit done.',
+    author: {
+      name: '⚡️Mei',
+      handle: 'thisismeihere',
+      imageUrl: meiPhoto
+    }
+  },
+  {
+    body: 'Having used @leaderbirdco as a customer I’d say @zackgilbert is a pretty talented guy 👀',
+    author: {
+      name: 'Laura is building 🚀🧪💯',
+      handle: 'Iam_LauraD',
+      imageUrl: lauradPhoto
+    }
   },
 ]
 
@@ -324,6 +419,55 @@ function Photos() {
   )
 }
 
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export function Testimonials() {
+  return (
+    <div className="mt-20 py-20 border-t border-zinc-300 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-xl text-center">
+          <h2 id="testimonials" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Testimonials</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+            I have worked with thousands of amazing people
+          </p>
+        </div>
+        <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+          <div className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.author.handle} className="pt-8 sm:inline-block sm:w-full sm:px-4">
+                <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
+                  <blockquote className="text-gray-900">
+                    <p>{`“${testimonial.body}”`}</p>
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-x-4">
+                    <Image
+                      src={testimonial.author.imageUrl}
+                      alt=""
+                      className="h-10 w-10 rounded-full bg-gray-50"
+                      unoptimized
+                    />
+                    <div>
+                      <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
+                      {testimonial.author.handle ? (
+                      <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
+                      ) : (
+                      <div className="text-gray-600">{`${testimonial.author.handle}`}</div>
+                      )}
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Home({ articles }) {
   return (
     <>
@@ -341,12 +485,6 @@ export default function Home({ articles }) {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
             👋 Hi! I’m Zack Gilbert –
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m a builder, engineering lead, and father, based in Chicago, IL.
-          </p>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m a business savvy, customer centric, product engineer that is a hard working, adaptable, and growth minded team player. It’s very important to me to be a good listener and foster communication so I can help build strong relationships with customers, community, and team members.
-          </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://twitter.com/zackgilbert"
@@ -369,10 +507,25 @@ export default function Home({ articles }) {
               icon={LinkedInIcon}
             />
           </div>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            I’m a builder, engineering lead, and father, based in Chicago, IL.
+          </p>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            I’m a business savvy, customer centric, product engineer and lead that is a hard working, adaptable, and growth minded team player. It’s very important to me to be a good listener and foster communication so I can help build strong relationships with customers, community, and team members.
+          </p>
+          {/*<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            My passion for blending technology with creativity always keeps the end user’s experience top of mind. As one of the founding members of both Technori and Chicago.concat(), and as a mentor at 1871, I’ve been involved with the Chicago tech and developer communities since 2010. I’ve had successful exits from 4 of my (SaaS) projects, was previously an Enterprise Solutions Engineer at Foursquare, where I helped . I most recently worked as Engineering Lead at Able.com, where I built and managed an engineering team of full-time and contractor-based developers from around the world to build while helping independent workers manage their finances and taxes.
+          </p>*/}
+        </div>
+        <div className="mt-20 py-20 border-t border-zinc-300 mx-auto text-center">
+          <h2 id="projects" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Projects</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+            I have build a few interesting projects.
+          </p>
         </div>
         <ul
           role="list"
-          className="mt-20 pt-20 border-t border-zinc-300 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project) => (
             <Card as="li" key={project.name}>
@@ -409,6 +562,9 @@ export default function Home({ articles }) {
             <Resume />
           </div>
         </div>
+      </Container>
+      <Container>
+        <Testimonials />
       </Container>
       <script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_ID} defer></script>
     </>
