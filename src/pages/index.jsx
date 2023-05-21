@@ -16,11 +16,6 @@ import logoAble from '@/images/logos/able.svg'
 import logoCloudbot from '@/images/logos/cloudbot.jpg'
 import logoFoursquare from '@/images/logos/foursquare.svg'
 import logoHighrise from '@/images/logos/highrise.png'
-import image1 from '@/images/photos/billq-logo.png'
-import image2 from '@/images/photos/ofcoursebooks.png'
-import image3 from '@/images/photos/fixtail.png'
-import image4 from '@/images/photos/wpcomplete.svg'
-import image5 from '@/images/photos/able.png'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -392,34 +387,6 @@ function Resume() {
   )
 }
 
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
-
-  return (
-    <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl border',
-              rotations[imageIndex % rotations.length]
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -431,7 +398,7 @@ export function Testimonials() {
         <div className="mx-auto max-w-xl text-center">
           <h2 id="testimonials" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Testimonials</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-            I have worked with thousands of amazing people
+            I have worked with thousands of amazing people.
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
@@ -462,6 +429,32 @@ export function Testimonials() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function CTA() {
+  return (
+    <div className="pt-32 border-t border-zinc-300 px-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-2xl text-center">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+          Interested in working together?
+        </h2>
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600 dark:text-gray-400">
+          Currently available for contract or full time opportunities.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <a
+            href="mailto:zack@zackgilbert.com?subject=via zackgilbert.com"
+            className="rounded-md bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 hover:bg-gray-600 dark:hover:bg-gray-300 px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+          >
+            Get in touch
+          </a>
+          {/*<a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            Learn more <span aria-hidden="true">→</span>
+          </a>*/}
         </div>
       </div>
     </div>
@@ -548,7 +541,7 @@ export default function Home({ articles }) {
             </Card>
           ))}
         </ul>
-        <p className="mt-20 text-center"><a href="https://projectgarden.co/zackgilbert" className="underline hover:no-underline px-10 py-3">Full list of projects</a></p>
+        <p className="mt-20 text-center"><a href="https://projectgarden.co/zackgilbert" className="underline hover:no-underline px-10 py-3 dark:text-gray-100">Full list of projects</a></p>
       </Container>
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
@@ -565,6 +558,7 @@ export default function Home({ articles }) {
       </Container>
       <Container>
         <Testimonials />
+        <CTA />
       </Container>
       <script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_ID} defer></script>
     </>
