@@ -501,10 +501,13 @@ export default function Home({ articles }) {
             />
           </div>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m a builder, engineering lead, and father, based in Chicago, IL.
+            I like to think of myself as a business-savvy, customer-centric, product engineer with soft skills. That’s just a long-winded way of saying I help bridge technical and non-technical worlds to make sure that the end user’s experience is always top of mind. I love building projects that help solve real problems.
           </p>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m a business savvy, customer centric, product engineer and lead that is a hard working, adaptable, and growth minded team player. It’s very important to me to be a good listener and foster communication so I can help build strong relationships with customers, community, and team members.
+            I’ve had successful exits from 4 of my projects and was previously a Solutions Engineer in <a href="https://foursquare.com" className="underline hover:no-underline">Foursquare</a>’s Chicago office where I helped enterprise companies integrate and optimize their geo-location needs. Most recently I was the engineering lead at <a href="https://able.com" className="underline hover:no-underline">Able.com</a>, where I was primarily responsible for the planning and execution of mobile and server development.
+          </p>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            As one of the founding members of <a href="https://technori.com" className="underline hover:no-underline">Technori</a> and Chicago.concat(), I’ve been involved with the Chicago tech and developer communities since 2010.
           </p>
           {/*<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             My passion for blending technology with creativity always keeps the end user’s experience top of mind. As one of the founding members of both Technori and Chicago.concat(), and as a mentor at 1871, I’ve been involved with the Chicago tech and developer communities since 2010. I’ve had successful exits from 4 of my (SaaS) projects, was previously an Enterprise Solutions Engineer at Foursquare, where I helped . I most recently worked as Engineering Lead at Able.com, where I built and managed an engineering team of full-time and contractor-based developers from around the world to build while helping independent workers manage their finances and taxes.
