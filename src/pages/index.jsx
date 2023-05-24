@@ -102,7 +102,7 @@ const testimonials = [
     body: 'just saying, @zackgilbert is the best cofounder a boy could have.',
     author: {
       name: 'Paul Jarvis',
-      context: 'Co-founder of Fixtail',
+      context: 'Cofounder of WPComplete & Fixtail',
       handle: '',
       imageUrl: paulJarvisPhoto
     },
