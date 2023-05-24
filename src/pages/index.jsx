@@ -39,6 +39,7 @@ import sethKravitzPhoto from '@/images/photos/sethkravitz.jpg'
 import jessePhoto from '@/images/photos/jesse.jpg'
 import meiPhoto from '@/images/photos/mei.jpg'
 import lauradPhoto from '@/images/photos/laurad.jpg'
+import vincePhoto from '@/images/photos/vince.jpg'
 
 
 const FATHOM_ID = process.env.NEXT_PUBLIC_FATHOM_ID
@@ -87,11 +88,21 @@ const projects = [
   },
 ]
 
+const featured = {
+  body: 'Zack is the first call when I need anything built, period. He is an amazingly talented, yet humble individual who listens more than he speaks and guides more than he corrects. He is able to get out of you what you want even when you can’t quite tell him what it is. He is also extremely flexible and able to adapt and change at the drop of a hat, which if you have built anything from scratch you will know how often that can happen. Lastly, Zack is an amazing father and husband too which may be the only thing more impressive than his ability to build!',
+  author: {
+    name: 'Vince Cortese',
+    context: 'CEO of Able.com',
+    handle: 'vincec03',
+    imageUrl: vincePhoto
+  }
+}
 const testimonials = [
   {
     body: 'just saying, @zackgilbert is the best cofounder a boy could have.',
     author: {
       name: 'Paul Jarvis',
+      context: 'Co-founder of Fixtail',
       handle: '',
       imageUrl: paulJarvisPhoto
     },
@@ -100,6 +111,7 @@ const testimonials = [
     body: 'Zack’s an incredibly talented developer but what makes him stand out is his hyper collaborative DNA, high velocity of shipping and a strong sense of design. I loved working with Zack on the SaaS app he built for me so I could get to revenue very quickly. I’d 100% recommend him to any other ambitious founder.',
     author: {
       name: 'KP',
+      context: '',
       handle: 'thisiskp_',
       imageUrl: kpPhoto,
     },
@@ -108,6 +120,7 @@ const testimonials = [
     body: 'It’s time to build that idea you keep coming back to! @zackgilbert is obviously my MVP, but now he can build yours too.',
     author: {
       name: 'Kelsey Kreiling',
+      context: '',
       handle: 'KelseyLK',
       imageUrl: kelseyPhoto
     }
@@ -116,6 +129,7 @@ const testimonials = [
     body: 'Working with Zack was an absolute dream. He took my idea and vision for a new online scheduling tool for my cake shop and turned it into an easy-to-use solution that was exactly what I needed. Less friction at checkout led to higher sales, and his streamlined scheduling system saved me stress AND administrative costs. Total game changer for my business!',
     author: {
       name: 'Emily Nejad',
+      context: 'BonVivantCakes.com',
       handle: '',
       imageUrl: emilyPhoto
     },
@@ -124,6 +138,7 @@ const testimonials = [
     body: 'I couldn’t imagine a better person to partner with if you want to test bringing an idea to life…trying to come up with something we can work on together!',
     author: {
       name: 'Allen Penn',
+      context: '',
       handle: 'allenpenn',
       imageUrl: allenPennPhoto
     }
@@ -132,6 +147,7 @@ const testimonials = [
     body: 'For everyone that wants to build an MVP, strongly recommend Zack as a sharp fast and great developer',
     author: {
       name: 'Miguel Muñoz Duarte',
+      context: '',
       handle: 'mmduarte',
       imageUrl: miguelPhoto
     }
@@ -140,6 +156,7 @@ const testimonials = [
     body: 'Anyone getting Zack for a month is lucky. He’s the unaffordable and unhirable combo of talented designer meets talented engineer meets experienced entrepreneur.',
     author: {
       name: 'Seth Kravitz',
+      context: '',
       handle: 'sethkravitz',
       imageUrl: sethKravitzPhoto
     },
@@ -148,6 +165,7 @@ const testimonials = [
     body: 'For anyone who is looking to spin up a high quality mvp super quick @zackgilbert is your guy! He’s been doing this for 20 years....and now he’s sharing his talents with you.',
     author: {
       name: 'Jesse Link 💭',
+      context: '',
       handle: 'jesselinkthinks',
       imageUrl: jessePhoto
     }
@@ -156,6 +174,7 @@ const testimonials = [
     body: 'Stop thinking. Get your MVP out there. @zackgilbert is incredible if you’re looking to get shit done.',
     author: {
       name: '⚡️Mei',
+      context: '',
       handle: 'thisismeihere',
       imageUrl: meiPhoto
     }
@@ -164,6 +183,7 @@ const testimonials = [
     body: 'Having used @leaderbirdco as a customer I’d say @zackgilbert is a pretty talented guy 👀',
     author: {
       name: 'Laura is building 🚀🧪💯',
+      context: '',
       handle: 'Iam_LauraD',
       imageUrl: lauradPhoto
     }
@@ -379,10 +399,10 @@ function Resume() {
           </li>
         ))}
       </ol>
-      {/*<Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button href="/GilbertZ-2023.pdf" variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>*/}
+      </Button>
     </div>
   )
 }
@@ -402,6 +422,29 @@ export function Testimonials() {
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+          <div key={featured.author.handle ? featured.author.handle : featured.author.name} className="mb-8 sm:inline-block sm:w-full">
+            <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
+              <blockquote className="text-gray-900">
+                <p>{`“${featured.body}”`}</p>
+              </blockquote>
+              <figcaption className="mt-6 mx-auto place-content-center flex items-center gap-x-4">
+                <Image
+                  src={featured.author.imageUrl}
+                  alt=""
+                  className="h-10 w-10 rounded-full bg-gray-50"
+                  unoptimized
+                />
+                <div>
+                  <div className="font-semibold text-gray-900">{featured.author.name}</div>
+                  {featured.author.context ? (
+                    <div className="text-gray-600">{`${featured.author.context}`}</div>
+                  ) : (
+                    <div className="text-gray-600"><a href={`https://twitter.com/${featured.author.handle}`}>{`@${featured.author.handle}`}</a></div>
+                  )}
+                </div>
+              </figcaption>
+            </figure>
+          </div>
           <div className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
             {testimonials.map((testimonial) => (
               <div key={testimonial.author.handle} className="pt-8 sm:inline-block sm:w-full sm:px-4">
@@ -418,10 +461,10 @@ export function Testimonials() {
                     />
                     <div>
                       <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
-                      {testimonial.author.handle ? (
-                      <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
+                      {testimonial.author.context ? (
+                      <div className="text-gray-600">{`${testimonial.author.context}`}</div>
                       ) : (
-                      <div className="text-gray-600">{`${testimonial.author.handle}`}</div>
+                      <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
                       )}
                     </div>
                   </figcaption>
