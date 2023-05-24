@@ -418,7 +418,7 @@ export function Testimonials() {
         <div className="mx-auto max-w-xl text-center">
           <h2 id="testimonials" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Testimonials</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-            I have worked with thousands of amazing people.
+            I have worked with hundreds of amazing people.
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
