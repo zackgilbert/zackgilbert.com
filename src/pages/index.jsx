@@ -40,6 +40,7 @@ import jessePhoto from '@/images/photos/jesse.jpg'
 import meiPhoto from '@/images/photos/mei.jpg'
 import lauradPhoto from '@/images/photos/laurad.jpg'
 import vincePhoto from '@/images/photos/vince.jpg'
+import gpjPhoto from '@/images/photos/gpj.jpg'
 
 
 const FATHOM_ID = process.env.NEXT_PUBLIC_FATHOM_ID
@@ -97,6 +98,27 @@ const featured = {
     imageUrl: vincePhoto
   }
 }
+const highlights = [
+  {
+    body: 'Working with Zack has been a true pleasure. His deep technical expertise is matched by high levels of collaboration and results. Under his guidance, we delivered several high-stakes projects at Foursquare. His pragmatic approach, coupled with an ability to foster a cooperative work environment, made him a key asset to our organization.',
+    author: {
+      name: 'Gareth Paul Jones',
+      context: '',
+      handle: 'gpj',
+      imageUrl: gpjPhoto
+    },
+  },
+  {
+    body: 'Working with Zack was an absolute dream. He took my idea and vision for a new online scheduling tool for my cake shop and turned it into an easy-to-use solution that was exactly what I needed. Less friction at checkout led to higher sales, and his streamlined scheduling system saved me stress AND administrative costs. Total game changer for my business!',
+    author: {
+      name: 'Emily Nejad',
+      context: 'BonVivantCakes.com',
+      handle: '',
+      imageUrl: emilyPhoto
+    },
+  }
+]
+
 const testimonials = [
   {
     body: 'just saying, @zackgilbert is the best cofounder a boy could have.',
@@ -124,15 +146,6 @@ const testimonials = [
       handle: 'KelseyLK',
       imageUrl: kelseyPhoto
     }
-  },
-  {
-    body: 'Working with Zack was an absolute dream. He took my idea and vision for a new online scheduling tool for my cake shop and turned it into an easy-to-use solution that was exactly what I needed. Less friction at checkout led to higher sales, and his streamlined scheduling system saved me stress AND administrative costs. Total game changer for my business!',
-    author: {
-      name: 'Emily Nejad',
-      context: 'BonVivantCakes.com',
-      handle: '',
-      imageUrl: emilyPhoto
-    },
   },
   {
     body: 'I couldn’t imagine a better person to partner with if you want to test bringing an idea to life…trying to come up with something we can work on together!',
@@ -422,7 +435,7 @@ export function Testimonials() {
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
-          <div key={featured.author.handle ? featured.author.handle : featured.author.name} className="mb-8 sm:inline-block sm:w-full">
+          <div key={featured.author.handle ? featured.author.handle : featured.author.name} className="mb-0 sm:inline-block sm:w-full">
             <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
               <blockquote className="text-gray-900">
                 <p>{`“${featured.body}”`}</p>
@@ -444,6 +457,33 @@ export function Testimonials() {
                 </div>
               </figcaption>
             </figure>
+          </div>
+          <div className="sm:-mx-4 flex sm:columns-2 sm:text-[0]">
+            {highlights.map((testimonial) => (
+              <div key={testimonial.author.handle} className="mb-8 pt-8 sm:inline-block sm:w-full sm:px-4">
+                <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
+                  <blockquote className="text-gray-900">
+                    <p>{`“${testimonial.body}”`}</p>
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-x-4">
+                    <Image
+                      src={testimonial.author.imageUrl}
+                      alt=""
+                      className="h-10 w-10 rounded-full bg-gray-50"
+                      unoptimized
+                    />
+                    <div>
+                      <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
+                      {testimonial.author.context ? (
+                      <div className="text-gray-600">{`${testimonial.author.context}`}</div>
+                      ) : (
+                      <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
+                      )}
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            ))}
           </div>
           <div className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
             {testimonials.map((testimonial) => (
