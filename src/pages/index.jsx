@@ -530,7 +530,7 @@ export function CTA() {
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <a
-            href="mailto:zack@zackgilbert.com?subject=via zackgilbert.com"
+            href="https://calendly.com/zackgilbert/30-min"
             className="rounded-md bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 hover:bg-gray-600 dark:hover:bg-gray-300 px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
           >
             Get in touch
