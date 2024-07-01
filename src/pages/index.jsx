@@ -559,18 +559,13 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            👋 Hi! I’m Zack Gilbert –
+            👋 Hi! I’m Zack Gilbert
           </h1>
           <div className="mt-6 flex gap-6">
             <SocialLink
               href="https://twitter.com/zackgilbert"
               aria-label="Follow on Twitter"
               icon={TwitterIcon}
-            />
-            <SocialLink
-              href="https://instagram.com/zackgilbert"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
             />
             <SocialLink
               href="https://github.com/zackgilbert"
