@@ -66,7 +66,7 @@ const projects = [
     link: { href: 'https://web.archive.org/web/20200511225258/https://www.fixtail.com/', label: 'fixtail.com' },
     logo: projectFixtail,
   },
-  {
+  /*{
     name: 'Able',
     description:
       'Mobile and web based tools that helped independent workers and freelancers manage their money and taxes. Built in Ruby on Rails, native iOS and Android.',
@@ -81,12 +81,12 @@ const projects = [
     logo: projectLeaderBird,
   },
   {
-    name: 'ProjectGarden',
+    name: '',
     description:
       'A place for makers to showcase and grow their projects from idea to launch. Built in 2 weeks, in Sinatra (Ruby).',
     link: { href: 'https://projectgarden.co/zackgilbert', label: 'projectgarden.co' },
     logo: projectProjectGarden,
-  },
+  },*/
 ]
 
 const featured = {
@@ -321,7 +321,7 @@ function Newsletter() {
         <span className="ml-3">Stay up to date</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
+        Get notified when I publish something new and unsubscribe at any time.
       </p>
       <div className="mt-6 flex">
         <input
@@ -627,7 +627,7 @@ export default function Home({ articles }) {
             </Card>
           ))}
         </ul>
-        <p className="mt-20 text-center"><a href="https://projectgarden.co/zackgilbert" className="underline hover:no-underline px-10 py-3 dark:text-gray-100">Full list of projects</a></p>
+        <p className="mt-20 text-center"><a href="https://docs.google.com/spreadsheets/d/12vxRYLiDF-cSlhvIf2hHiJ6oE1ZQD79s41yMkZIYIS0/edit?usp=sharing" className="underline hover:no-underline px-10 py-3 dark:text-gray-100">Full list of projects</a></p>
       </Container>
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
