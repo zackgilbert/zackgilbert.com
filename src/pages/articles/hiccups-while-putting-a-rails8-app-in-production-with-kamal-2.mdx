@@ -85,6 +85,8 @@ So I needed to create an account with a registry and [Docker Hub](https://hub.do
 
 In your config/deploy.yml file, the `image` will be your Docker Hub `$username/$service` where service is the name of your application that Kamal uses as the name of the container image.
 
+[Allan Lloyds pointed out](https://bsky.app/profile/allan.social/post/3lbalx7fhh22c) that it's important to realize that Kamal is handling the actual creation of the Docker image for you and you're just telling Kamal where to put it and what it should be named. No need to do anything else yourself, as long as you give Kamal access to your Docker image registry (in this case, Docker Hub).
+
 ---
 
 ## What Next?
