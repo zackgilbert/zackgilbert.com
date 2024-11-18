@@ -8,9 +8,9 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
+  BlueskyIcon,
 } from '@/components/SocialIcons'
 import logoAble from '@/images/logos/able.svg'
 import logoCloudbot from '@/images/logos/cloudbot.jpg'
@@ -43,7 +43,6 @@ import vincePhoto from '@/images/photos/vince.jpg'
 import gpjPhoto from '@/images/photos/gpj.jpg'
 
 
-const FATHOM_ID = process.env.NEXT_PUBLIC_FATHOM_ID
 const projects = [
   {
     name: 'billQ',
@@ -562,6 +561,13 @@ export default function Home({ articles }) {
             👋 Hi! I’m Zack Gilbert
           </h1>
           <div className="mt-6 flex gap-6">
+            <div className="bluesky-flutter w-6 h-6">
+              <SocialLink
+                href="https://bsky.app/profile/zackgilbert.com"
+                aria-label="Follow on Bluesky"
+                icon={BlueskyIcon}
+              />
+            </div>
             <SocialLink
               href="https://twitter.com/zackgilbert"
               aria-label="Follow on Twitter"
