@@ -1,0 +1,126 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const meta = {
+  author: 'Zack Gilbert',
+  date: '2024-11-17',
+  title: 'Hiccups While Putting a Rails 8 App in Production w/ Kamal 2',
+  description:
+    'Pointing out a few of the hiccups I ran into while putting a simple Rails 8 app in production with Kamal 2: Choosing and setting up a server & getting the Docker registry working.',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+> Important Note: this article was written on November 17th, 2024 and maybe out of date soon as documentation and tooling improves.
+
+
+After watching the [RailsWorld keynote](https://www.youtube.com/watch?v=-cEn_83zRFw) (and [other videos](https://www.youtube.com/playlist?list=PLHFP2OPUpCeb182aDN5cKZTuyjn3Tdbqx)), I got super excited about where Rails was heading. The promise of the "One Person Framework" drew me in. But it was [Stephen Margheim's promise of supercharging with SQLite](https://www.youtube.com/watch?v=wFUy120Fts8&t=0s) with a simplified (single machine) application architecture is what truly sold me.
+
+![Diagram of the new viable single machine application architecture from Stephen Margheim](https://fractaledmind.github.io/images/railsworld-2024/012.png)
+([image via Stephen Margheim](https://fractaledmind.github.io/2024/10/16/sqlite-supercharges-rails/?utm_source=zackgilbert&ref=zackgilbert.com))
+
+While I normally start new projects using [BulletTrain](https://bullettrain.co), the need for more complicated infrastructure, while easy to setup, can sometimes be overkill for smaller projects. So I knew as soon as I started a new side project that I wanted to explore the simpler setup that Rails 8 promised.
+
+It's also important to note that this isn't a complete guide or walk thru. It won't touch on each step needed along the way. Your milage may vary, but I hope it's helpful to others as they explore using Kamal.
+
+
+---
+
+## Going to Production
+(and the gotchas I ran into)
+
+One of the biggest selling points of Rails 8 is this idea of the framework being able to go from "Hello World to IPO". So once I got my side project to a point that it was ready to put it up on an actual domain, I started to investigate how I might do that.
+
+The [Rails 8 demo](https://www.youtube.com/watch?v=X_Hw9P1iZfQ) and keynote videos made it seem so simple. As I started going through the process, while most of the resources were very helpful, most of them were more about wowing the watcher and showing how easy it was.  But as I started to really dig in, I realized there were a couple of pieces that were conveniently glossed over.
+
+Let's dig into the two main hiccups that slowed me down.
+
+> Important Note: this article was written on November 17th, 2024 and maybe out of date soon as documentation and tooling improves.
+
+---
+
+### Issue #1: Choosing + Setting up a Server
+
+While all of the videos and articles on how to setup a Rails 8 project will mention hosting, most of the resources I found (aside from [Josef Strzibny's Kamal Handbook](https://rails.market/projects/kamal-handbook) and [Drifting Ruby's Kamal 2 video](https://www.youtube.com/watch?v=ZXX0lZN6dbc)) just assume you have something already created and are ready to go. The above mentioned resources actually walk you through grabbing a Digital Ocean droplet and give you suggestions about what you should actually choose.
+
+That, and the [$200 credit*](https://cloud.digitalocean.com/registrations/new?refcode=f6fcd01aaffb) were why I ended up going with Digital Ocean and not another host like Hetzner, AWS or Linode.
+
+So in the end, I ended up choosing to create a Droplet on Digital Ocean with the following specs:
+
+Operating System: Ubuntu (24.10 x64)
+Droplet type: Shared CPU - Basic
+CPU options: Regular w/ SSD disk that costs $12/mo (or $0.018/hour)
+
+This gave me the following specs:
+2 GB / 1 CPU
+50 GB SSD Disk
+2 TB transfer
+
+I also chose to use SSH Key instead of a password so that we could disable the password login and keep the server at least a little bit more secure.
+
+
+Important: once you setup the server and can ssh in, just stop. As long as you can ssh into the new droplet, you are good and don't need to do anything else.
+
+
+The biggest mistake I made was that I assumed I needed to setup the server before hand. I originally locked it down too tightly by setting up ufw firewall and trying to use a non-root sudo user to get things setup. This ended up causing issues with Kamal not being able to properly communicate with the docker image registry (more on that below).
+
+In b4: yes, I'm aware (and agree) this is terribly insecure and probably leaves your server vulnerable. You'll want to sort out the additional security updates after getting Kamal setup. I haven't had a chance to do that yet, so that'll probably be a future post once I get a chance to investigate all that. 
+
+
+Once I had the server up and running and could login via ssh, I could then update my desired domain's DNS and my project's `config/deploy.yml` file to point to the IP address of the newly created droplet.
+
+---
+
+### Issue #2: Docker Registry
+
+Despite having decent exposure to Docker before, this was by far the piece that was the most confusing and unclear to me during setup. I understand the Kamal is basically just a wrapper around Docker, but setting up that piece was not made apparent from the official documentation or videos. The videos and instructions from most places always seemed to skim over this Docker image host "registry" piece, assuming you are already familiar and have it setup.
+
+Even [the official site](https://kamal-deploy.org/) warns:
+> You’re probably still better off with a fully managed service if basic Linux or Docker is still difficult, but as soon as those concepts are familiar, you’ll be ready to go with Kamal.
+
+
+Even with my own familiarity w/ Docker in the past, it wasn't until [Eric Powell mentioned dockerhub](https://x.com/powell_eric/status/1857901400010678428) that he reminded me that I needed to use an external service (like [Docker Hub](https://hub.docker.com) or DigitalOcean's own Registry) to host the docker image. This wasn't something built into Kamal.
+
+So I needed to create an account with a registry and [Docker Hub](https://hub.docker.com) was the easiest option and I could setup a free private registry. All I needed to do was signup and create an account with a username and a [personal access token](https://app.docker.com/settings/personal-access-tokens).
+
+In your config/deploy.yml file, the `image` will be your Docker Hub `$username/$service` where service is the name of your application that Kamal uses as the name of the container image.
+
+---
+
+## What Next?
+
+From here, now that I have the app up and running on a server, I think the next steps are to investigate how to improve security (like Mikael's article on [Server Provisioning for a Kamal Setup](https://mhenrixon.com/articles/server-provisioning-for-a-kamal-setup)) and cleaning up how my Kamal secrets are stored (move them to 1password).
+
+After that, I'll probably just continue to flesh out the app features and explore even more of the new goodies that Rails 8 has to offer.
+
+---
+
+## Conclusion
+
+Overall, Kamal is a step in the right direction, but I'd say it's not quite yet there for the simple solution that it's being touted as. But I think that's just because they needed to get it out the door for RailsWorld and get it out into the world.
+
+It is impressive how much they have simplified the process, but just be aware that there's still some gaps in the documentation and we as a community are still trying to piece that info together.
+
+At this point, the basic videos and tutorials (along with these gotchas) should get you through a simple basic setup and help you get a simple app up on a server. Using the Digital Ocean credit, I recommend that you go through the process and throw up a simple demo app yourself just to get familiar.
+
+I imagine things will only get better from here and I'm excited to see how this continues to improve and simplify.
+
+---
+
+### Additional Resources
+(that might be helpful on the journey ahead)
+
+
+> Note: DO NOT USE digital ocean's documentation or one-click builds for Rails projects. They will result in things not working properly (ask me how I know).
+
+* @guillaumebriday shared his Ansible playbook: https://x.com/guillaumebriday/status/1858225006762660344
+* @igor-alexandrov shared his Github actions: https://x.com/igor_alexandrov/status/1857965557909258733
+* Matouš Borák shared: https://dev.to/nejremeslnici/speed-up-kamal-deploys-in-github-actions-oh0 and https://www.howtogeek.com/devops/how-to-use-docker-with-a-ufw-firewall/
+* Mikael Henriksson shared his article: [Server Provisioning for a Kamal Setup](https://mhenrixon.com/articles/server-provisioning-for-a-kamal-setup)
+
+### My social media posts:
+* https://bsky.app/profile/zackgilbert.com/post/3lb3lcgnj5c27
+* https://x.com/zackgilbert/status/1857947860957872252
+* https://x.com/zackgilbert/status/1857867741577064496
+
+
