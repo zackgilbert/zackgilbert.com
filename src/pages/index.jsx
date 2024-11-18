@@ -457,9 +457,9 @@ export function Testimonials() {
               </figcaption>
             </figure>
           </div>
-          <div className="sm:-mx-4 flex sm:columns-2 sm:text-[0]">
+          <div className="sm:-mx-4 sm:columns-2 sm:text-[0]">
             {highlights.map((testimonial) => (
-              <div key={testimonial.author.handle} className="mb-8 pt-8 sm:inline-block sm:w-full sm:px-4">
+              <div key={testimonial.author.handle} className="mb-8 pt-8 sm:w-full sm:px-4">
                 <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
                   <blockquote className="text-gray-900">
                     <p>{`“${testimonial.body}”`}</p>
