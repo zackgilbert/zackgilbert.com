@@ -15,10 +15,10 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 
 
 ## TLDR:
-* You need a server. A basic Digital Ocean Droplet is $12/mo is good enough to start. You might even be able to [get $200 in credits](https://cloud.digitalocean.com/registrations/new?refcode=f6fcd01aaffb) to try it out.
-* Important: DON'T setup the server before hand. Just create it and be able to ssh into it.
-* You need a Docker image registry. I used [Docker Hub](https://hub.docker.com).
-* Once you have a registry access via a personal access token, update you config/deploy.yml and Kamal will handle the creation of the Docker image.
+* You need a server. A basic Digital Ocean Droplet is $12/mo is probably good enough to start for a super simple app. You might even be able to [get $200 in credits](https://cloud.digitalocean.com/registrations/new?refcode=f6fcd01aaffb) to try it out.
+* Important: DON'T setup the server before hand. Just create it and be able to ssh into it with your root user.
+* You need a Docker image registry account. I used [Docker Hub](https://hub.docker.com).
+* Once you have access to your registry account via a [personal access token](https://app.docker.com/settings/personal-access-tokens), update you config/deploy.yml and Kamal will handle the creation of the Docker image.
 
 ---
 
