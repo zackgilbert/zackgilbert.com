@@ -14,6 +14,14 @@ export default (props) => <ArticleLayout meta={meta} {...props} />
 > Important Note: this article was written on November 17th, 2024 and maybe out of date soon as documentation and tooling improves.
 
 
+## TLDR:
+* You need a server. A basic Digital Ocean Droplet is $12/mo is good enough to start. You might even be able to [get $200 in credits](https://cloud.digitalocean.com/registrations/new?refcode=f6fcd01aaffb) to try it out.
+* Important: DON'T setup the server before hand. Just create it and be able to ssh into it.
+* You need a Docker image registry. I used [Docker Hub](https://hub.docker.com).
+* Once you have a registry access via a personal access token, update you config/deploy.yml and Kamal will handle the creation of the Docker image.
+
+---
+
 After watching the [RailsWorld keynote](https://www.youtube.com/watch?v=-cEn_83zRFw) (and [other videos](https://www.youtube.com/playlist?list=PLHFP2OPUpCeb182aDN5cKZTuyjn3Tdbqx)), I got super excited about where Rails was heading. The promise of the "One Person Framework" drew me in. But it was [Stephen Margheim's promise of supercharging with SQLite](https://www.youtube.com/watch?v=wFUy120Fts8&t=0s) with a simplified (single machine) application architecture is what truly sold me.
 
 ![Diagram of the new viable single machine application architecture from Stephen Margheim](https://fractaledmind.github.io/images/railsworld-2024/012.png)
