@@ -6,6 +6,8 @@ import { Header } from '@/components/Header'
 import '@/styles/tailwind.css'
 import 'focus-visible'
 
+const FATHOM_ID = process.env.NEXT_PUBLIC_FATHOM_ID
+
 function usePrevious(value) {
   let ref = useRef()
 
@@ -32,6 +34,7 @@ export default function App({ Component, pageProps, router }) {
           <Component previousPathname={previousPathname} {...pageProps} />
         </main>
         <Footer />
+        <script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_ID} defer></script>
       </div>
     </>
   )

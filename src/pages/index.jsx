@@ -641,7 +641,6 @@ export default function Home({ articles }) {
         <Testimonials />
         <CTA />
       </Container>
-      <script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_ID} defer></script>
     </>
   )
 }
