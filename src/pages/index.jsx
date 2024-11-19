@@ -31,10 +31,9 @@ import projectProjectGarden from '@/images/logos/projectgarden.svg'
 import paulJarvisPhoto from '@/images/photos/pauljarvis.jpg'
 import kpPhoto from '@/images/photos/kp.jpg'
 import allenPennPhoto from '@/images/photos/allenpenn.jpg'
-import kelseyPhoto from '@/images/photos/kelsey.jpg'
+import malloryPhoto from '@/images/photos/mallory.jpg'
 import miguelPhoto from '@/images/photos/miguel.jpg'
 import emilyPhoto from '@/images/photos/emily.jpg'
-import bonvivantCakesPhoto from '@/images/photos/bonvivantcakes.png'
 import sethKravitzPhoto from '@/images/photos/sethkravitz.jpg'
 import jessePhoto from '@/images/photos/jesse.jpg'
 import meiPhoto from '@/images/photos/mei.jpg'
@@ -92,8 +91,8 @@ const featured = {
   body: 'Zack is the first call when I need anything built, period. He is an amazingly talented, yet humble individual who listens more than he speaks and guides more than he corrects. He is able to get out of you what you want even when you can’t quite tell him what it is. He is also extremely flexible and able to adapt and change at the drop of a hat, which if you have built anything from scratch you will know how often that can happen. Lastly, Zack is an amazing father and husband too which may be the only thing more impressive than his ability to build!',
   author: {
     name: 'Vince Cortese',
-    context: 'CEO of Able.com',
-    handle: 'vincec03',
+    title: 'CEO',
+    website: 'Able.com',
     imageUrl: vincePhoto
   }
 }
@@ -111,7 +110,8 @@ const highlights = [
     body: 'Working with Zack was an absolute dream. He took my idea and vision for a new online scheduling tool for my cake shop and turned it into an easy-to-use solution that was exactly what I needed. Less friction at checkout led to higher sales, and his streamlined scheduling system saved me stress AND administrative costs. Total game changer for my business!',
     author: {
       name: 'Emily Nejad',
-      context: 'BonVivantCakes.com',
+      title: 'Owner',
+      website: 'BonVivantCakes.com',
       handle: '',
       imageUrl: emilyPhoto
     },
@@ -123,7 +123,8 @@ const testimonials = [
     body: 'just saying, @zackgilbert is the best cofounder a boy could have.',
     author: {
       name: 'Paul Jarvis',
-      context: 'Cofounder of WPComplete & Fixtail',
+      title: 'Cofounder',
+      context: 'WPComplete & Fixtail',
       handle: '',
       imageUrl: paulJarvisPhoto
     },
@@ -138,12 +139,13 @@ const testimonials = [
     },
   },
   {
-    body: 'It’s time to build that idea you keep coming back to! @zackgilbert is obviously my MVP, but now he can build yours too.',
+    body: "I am lucky enough to work with Zack Gilbert as our own fractional CTO resource for software and coding at Week of the Website - he's taking on new projects and I couldn't recommend a better partner for success!",
     author: {
-      name: 'Kelsey Kreiling',
-      context: '',
-      handle: 'KelseyLK',
-      imageUrl: kelseyPhoto
+      name: 'Mallory Ulaszek',
+      title: 'CEO',
+      website: 'WeekOfTheWebsite.com',
+      handle: '',
+      imageUrl: malloryPhoto
     }
   },
   {
@@ -173,7 +175,7 @@ const testimonials = [
       imageUrl: sethKravitzPhoto
     },
   },
-  {
+  /*{
     body: 'For anyone who is looking to spin up a high quality mvp super quick @zackgilbert is your guy! He’s been doing this for 20 years....and now he’s sharing his talents with you.',
     author: {
       name: 'Jesse Link 💭',
@@ -199,7 +201,7 @@ const testimonials = [
       handle: 'Iam_LauraD',
       imageUrl: lauradPhoto
     }
-  },
+  },*/
 ]
 
 function LinkIcon(props) {
@@ -449,10 +451,13 @@ export function Testimonials() {
                 <div>
                   <div className="font-semibold text-gray-900">{featured.author.name}</div>
                   {featured.author.context ? (
-                    <div className="text-gray-600">{`${featured.author.context}`}</div>
+                  <div className="text-gray-600">{`${featured.author.title} of ${featured.author.context}`}</div>
                   ) : (
-                    <div className="text-gray-600"><a href={`https://twitter.com/${featured.author.handle}`}>{`@${featured.author.handle}`}</a></div>
-                  )}
+                    (featured.author.website) ? 
+                    <div className="text-gray-600"><a href={`https://${featured.author.website}`}>{`${featured.author.title} of ${featured.author.website}`}</a></div>
+                  : (
+                  <div className="text-gray-600"><a href={`https://twitter.com/${featured.author.handle}`}>{`@${featured.author.handle}`}</a></div>
+                  ))}
                 </div>
               </figcaption>
             </figure>
@@ -474,10 +479,13 @@ export function Testimonials() {
                     <div>
                       <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
                       {testimonial.author.context ? (
-                      <div className="text-gray-600">{`${testimonial.author.context}`}</div>
+                      <div className="text-gray-600">{`${testimonial.author.title} of ${testimonial.author.context}`}</div>
                       ) : (
+                        (testimonial.author.website) ? 
+                        <div className="text-gray-600"><a href={`https://${testimonial.author.website}`}>{`${testimonial.author.title} of ${testimonial.author.website}`}</a></div>
+                      : (
                       <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
-                      )}
+                      ))}
                     </div>
                   </figcaption>
                 </figure>
@@ -501,10 +509,13 @@ export function Testimonials() {
                     <div>
                       <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
                       {testimonial.author.context ? (
-                      <div className="text-gray-600">{`${testimonial.author.context}`}</div>
+                      <div className="text-gray-600">{`${testimonial.author.title} of ${testimonial.author.context}`}</div>
                       ) : (
+                        (testimonial.author.website) ? 
+                        <div className="text-gray-600"><a href={`https://${testimonial.author.website}`}>{`${testimonial.author.title} of ${testimonial.author.website}`}</a></div>
+                      : (
                       <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
-                      )}
+                      ))}
                     </div>
                   </figcaption>
                 </figure>
