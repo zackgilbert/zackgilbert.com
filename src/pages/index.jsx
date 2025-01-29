@@ -297,50 +297,6 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-function Newsletter() {
-  return (
-    <form
-      action="https://zackgilbert.substack.com/api/v1/free?nojs=true"
-      method="post"
-      className="form rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-      noValidate=""
-    >
-      <input type="hidden" name="first_url" value="https://zackgilbert.substack.com/publish?utm_source=user-menu"/>
-      <input type="hidden" name="first_referrer" value="https://substack.com/"/>
-      <input type="hidden" name="current_url" value="https://zackgilbert.substack.com/embed"/>
-      <input type="hidden" name="current_referrer" value="https://zackgilbert.com/"/>
-      <input type="hidden" name="referral_code"/>
-      <input type="hidden" name="source" value="embed"/>
-      <input type="hidden" name="referring_pub_id"/>
-      <input type="hidden" name="additional_referring_pub_ids"/>
-
-      <input type="email" name="fake_email" placeholder="email" style={{ position: 'absolute', top: '-10000px', left: '-10000px' }} />
-      <input type="password" name="fake_password" placeholder="password" style={{ position: 'absolute', top: '-10000px', left: '-10000px' }} />
-    
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new and unsubscribe at any time.
-      </p>
-      <div className="mt-6 flex">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email address"
-          aria-label="Email address"
-          required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-        />
-        <Button type="submit" className="ml-4 flex-none">
-          Join
-        </Button>
-      </div>
-    </form>
-  )
-}
-
 function Resume() {
   let resume = [
     {
@@ -611,7 +567,7 @@ export default function Home({ articles }) {
         <div className="mt-20 py-20 border-t border-zinc-300 mx-auto text-center">
           <h2 id="projects" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Projects</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-            I have build a few interesting projects.
+            I have built a few interesting projects.
           </p>
         </div>
         <ul
@@ -649,7 +605,6 @@ export default function Home({ articles }) {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
             <Resume />
           </div>
         </div>
