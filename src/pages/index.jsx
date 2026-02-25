@@ -27,6 +27,9 @@ import projectFixtail from '@/images/logos/fixtail.jpg'
 import projectLeaderBird from '@/images/logos/leaderbird.svg'
 import projectBillQ from '@/images/logos/billq.png'
 import projectProjectGarden from '@/images/logos/projectgarden.svg'
+import projectAugustaPlanner from '@/images/logos/augustaplanner.png'
+import projectJustSendIt from '@/images/logos/justsendit.png'
+import projectEventuallyTicketing from '@/images/logos/eventuallyticketing.png'
 
 import paulJarvisPhoto from '@/images/photos/pauljarvis.jpg'
 import kpPhoto from '@/images/photos/kp.jpg'
@@ -42,7 +45,37 @@ import vincePhoto from '@/images/photos/vince.jpg'
 import gpjPhoto from '@/images/photos/gpj.jpg'
 
 
-const projects = [
+const recentProjects = [
+  {
+    name: 'Augusta Planner',
+    description:
+      'Compliance automation for the Augusta Rule (Section 280A), helping business owners document tax-free rental income from their property.',
+    link: { href: 'https://augustaplanner.com', label: 'augustaplanner.com' },
+    logo: projectAugustaPlanner,
+  },
+  {
+    name: 'Just Send It',
+    description:
+      'Dead-simple email marketing for creators. Send emails to your list straight from your favorite email client — no templates, no logins, no fuss.',
+    link: { href: 'https://justsendit.email', label: 'justsendit.email' },
+    logo: projectJustSendIt,
+  },
+  {
+    name: 'CPA Connect',
+    description:
+      'Practice management platform for accounting firms — streamlining client management, project workflows, team coordination, and billing.',
+    link: { href: 'https://mycpaconnect.com', label: 'mycpaconnect.com' },
+  },
+  {
+    name: 'Eventually Ticketing',
+    description:
+      'Event ticketing that integrates natively with Squarespace Commerce — no external checkouts or workarounds needed.',
+    link: { href: 'https://eventuallyticketing.com', label: 'eventuallyticketing.com' },
+    logo: projectEventuallyTicketing,
+  },
+]
+
+const pastProjects = [
   {
     name: 'billQ',
     description:
@@ -64,27 +97,6 @@ const projects = [
     link: { href: 'https://web.archive.org/web/20200511225258/https://www.fixtail.com/', label: 'fixtail.com' },
     logo: projectFixtail,
   },
-  /*{
-    name: 'Able',
-    description:
-      'Mobile and web based tools that helped independent workers and freelancers manage their money and taxes. Built in Ruby on Rails, native iOS and Android.',
-    link: { href: 'https://able.com', label: 'able.com' },
-    logo: projectAble,
-  },
-  {
-    name: 'LeaderBird',
-    description:
-      'A Twitter based leaderboard competition and accountability SaaS. Has paying customers. Built in 2 weeks, in Sinatra (Ruby).',
-    link: { href: 'https://leaderbird.co', label: 'leaderbird.co' },
-    logo: projectLeaderBird,
-  },
-  {
-    name: '',
-    description:
-      'A place for makers to showcase and grow their projects from idea to launch. Built in 2 weeks, in Sinatra (Ruby).',
-    link: { href: 'https://projectgarden.co/zackgilbert', label: 'projectgarden.co' },
-    logo: projectProjectGarden,
-  },*/
 ]
 
 const featured = {
@@ -142,7 +154,7 @@ const testimonials = [
     body: "I am lucky enough to work with Zack Gilbert as our own fractional CTO resource for software and coding at Week of the Website - he's taking on new projects and I couldn't recommend a better partner for success!",
     author: {
       name: 'Mallory Ulaszek',
-      title: 'CEO',
+      title: 'Former CEO',
       website: 'WeekOfTheWebsite.com',
       handle: '',
       imageUrl: malloryPhoto
@@ -388,7 +400,7 @@ export function Testimonials() {
         <div className="mx-auto max-w-xl text-center">
           <h2 id="testimonials" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Testimonials</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-            I have worked with hundreds of amazing people.
+            What people say about working with me
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
@@ -515,7 +527,7 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Zack Gilbert - Builder, engineering lead, and father.
+          Zack Gilbert - I help people build the tools they've always wanted.
         </title>
         <meta
           name="description"
@@ -525,8 +537,11 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            👋 Hi! I’m Zack Gilbert
+            I help people with deep industry knowledge build the tools they’ve always wanted.
           </h1>
+          <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+            You know your business inside and out. You’ve been sketching ideas on napkins for years. I’m the technical partner who makes them real.
+          </p>
           <div className="mt-6 flex gap-6">
             <div className="bluesky-flutter w-6 h-6">
               <SocialLink
@@ -564,17 +579,85 @@ export default function Home({ articles }) {
             My passion for blending technology with creativity always keeps the end user’s experience top of mind. As one of the founding members of both Technori and Chicago.concat(), and as a mentor at 1871, I’ve been involved with the Chicago tech and developer communities since 2010. I’ve had successful exits from 4 of my (SaaS) projects, was previously an Enterprise Solutions Engineer at Foursquare, where I helped . I most recently worked as Engineering Lead at Able.com, where I built and managed an engineering team of full-time and contractor-based developers from around the world to build while helping independent workers manage their finances and taxes.
           </p>*/}
         </div>
+        <div className="mt-20 py-20 border-t border-zinc-300">
+          <div className="mx-auto max-w-2xl">
+            <h2 id="work-with-me" className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
+              Let's Build Something
+            </h2>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              I work with business owners and domain experts who have ideas for software that would transform how they work — but aren't technical enough to build it themselves.
+            </p>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              Together, we go from idea to working product. I handle the architecture, the code, and the production details. You bring the expertise and vision.
+            </p>
+            <p className="mt-6 text-base font-semibold text-zinc-900 dark:text-zinc-100">
+              What this looks like:
+            </p>
+            <ul className="mt-4 space-y-2 text-base text-zinc-600 dark:text-zinc-400">
+              <li><span className="font-semibold text-zinc-900 dark:text-zinc-100">Monthly partnership ($5k/month)</span> — ongoing collaboration, building and iterating together</li>
+              <li><span className="font-semibold text-zinc-900 dark:text-zinc-100">Project-based work</span> — for well-defined builds with clear scope</li>
+            </ul>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+              If you've got an idea you've been sitting on, let's talk.
+            </p>
+            <div className="mt-8">
+              <a
+                href="https://calendly.com/zackgilbert/30-min"
+                className="rounded-md bg-zinc-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
+              >
+                Schedule a Call
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="mt-20 py-20 border-t border-zinc-300 mx-auto text-center">
-          <h2 id="projects" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Projects</h2>
+          <h2 id="projects" className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Recent Projects</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-            I have built a few interesting projects.
+            Here's what I've been building lately.
           </p>
         </div>
         <ul
           role="list"
-          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-2"
         >
-          {projects.map((project) => (
+          {recentProjects.map((project) => (
+            <Card as="li" key={project.name}>
+              <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                {project.logo ? (
+                  <Image
+                    src={project.logo}
+                    alt=""
+                    className="h-8 w-8 rounded-full"
+                    unoptimized
+                  />
+                ) : (
+                  <span className="text-lg font-bold text-zinc-600 dark:text-zinc-300">
+                    {project.name.charAt(0)}
+                  </span>
+                )}
+              </div>
+              <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              </h2>
+              <Card.Description>{project.description}</Card.Description>
+              <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+                <LinkIcon className="h-6 w-6 flex-none" />
+                <span className="ml-2">{project.link.label}</span>
+              </p>
+            </Card>
+          ))}
+        </ul>
+        <div className="mt-20 pt-20 border-t border-zinc-300 mx-auto text-center">
+          <h2 className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Past Projects</h2>
+          <p className="mt-2 text-xl tracking-tight text-gray-600 dark:text-gray-400">
+            A few older projects — some sold, some still running.
+          </p>
+        </div>
+        <ul
+          role="list"
+          className="mt-10 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {pastProjects.map((project) => (
             <Card as="li" key={project.name}>
               <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                 <Image
