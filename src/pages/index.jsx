@@ -12,10 +12,6 @@ import {
   TwitterIcon,
   BlueskyIcon,
 } from '@/components/SocialIcons'
-import logoAble from '@/images/logos/able.svg'
-import logoCloudbot from '@/images/logos/cloudbot.jpg'
-import logoFoursquare from '@/images/logos/foursquare.svg'
-import logoHighrise from '@/images/logos/highrise.png'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -100,35 +96,44 @@ const pastProjects = [
 ]
 
 const featured = {
-  body: 'Zack is the first call when I need anything built, period. He is an amazingly talented, yet humble individual who listens more than he speaks and guides more than he corrects. He is able to get out of you what you want even when you can’t quite tell him what it is. He is also extremely flexible and able to adapt and change at the drop of a hat, which if you have built anything from scratch you will know how often that can happen. Lastly, Zack is an amazing father and husband too which may be the only thing more impressive than his ability to build!',
+  body: "Working with Zack was an absolute dream. He took my idea and vision for a new online scheduling tool for my cake shop and turned it into an easy-to-use solution that was exactly what I needed. Less friction at checkout led to higher sales, and his streamlined scheduling system saved me stress AND administrative costs. Total game changer for my business!",
   author: {
-    name: 'Vince Cortese',
-    title: 'CEO',
-    website: 'Able.com',
-    imageUrl: vincePhoto
+    name: 'Emily Nejad',
+    title: 'Owner',
+    website: 'BonVivantCakes.com',
+    imageUrl: emilyPhoto
   }
 }
 const highlights = [
   {
-    body: 'Working with Zack has been a true pleasure. His deep technical expertise is matched by high levels of collaboration and results. Under his guidance, we delivered several high-stakes projects at Foursquare. His pragmatic approach, coupled with an ability to foster a cooperative work environment, made him a key asset to our organization.',
+    body: "I am lucky enough to work with Zack Gilbert as our own fractional CTO resource for software and coding at Week of the Website - he's taking on new projects and I couldn't recommend a better partner for success!",
     author: {
-      name: 'Gareth Paul Jones',
-      context: '',
-      handle: 'gpj',
-      imageUrl: gpjPhoto
+      name: 'Mallory Ulaszek',
+      title: 'Former CEO',
+      website: 'WeekOfTheWebsite.com',
+      handle: '',
+      imageUrl: malloryPhoto
     },
   },
   {
-    body: 'Working with Zack was an absolute dream. He took my idea and vision for a new online scheduling tool for my cake shop and turned it into an easy-to-use solution that was exactly what I needed. Less friction at checkout led to higher sales, and his streamlined scheduling system saved me stress AND administrative costs. Total game changer for my business!',
+    body: 'Working with Zack has been a true pleasure. His deep technical expertise is matched by high levels of collaboration and results. Under his guidance, we delivered several high-stakes projects at Foursquare. His pragmatic approach, coupled with an ability to foster a cooperative work environment, made him a key asset to our organization.',
     author: {
-      name: 'Emily Nejad',
-      title: 'Owner',
-      website: 'BonVivantCakes.com',
-      handle: '',
-      imageUrl: emilyPhoto
+      name: 'Gareth Paul Jones',
+      context: 'Manager at Foursquare',
+      imageUrl: gpjPhoto
     },
   }
 ]
+
+const featured2 = {
+  body: "Zack is the first call when I need anything built, period. He is an amazingly talented, yet humble individual who listens more than he speaks and guides more than he corrects. He is able to get out of you what you want even when you can't quite tell him what it is. He is also extremely flexible and able to adapt and change at the drop of a hat, which if you have built anything from scratch you will know how often that can happen. Lastly, Zack is an amazing father and husband too which may be the only thing more impressive than his ability to build!",
+  author: {
+    name: 'Vince Cortese',
+    title: 'CEO',
+    context: 'Able.com',
+    imageUrl: vincePhoto
+  }
+}
 
 const testimonials = [
   {
@@ -142,7 +147,7 @@ const testimonials = [
     },
   },
   {
-    body: 'Zack’s an incredibly talented developer but what makes him stand out is his hyper collaborative DNA, high velocity of shipping and a strong sense of design. I loved working with Zack on the SaaS app he built for me so I could get to revenue very quickly. I’d 100% recommend him to any other ambitious founder.',
+    body: "Zack's an incredibly talented developer but what makes him stand out is his hyper collaborative DNA, high velocity of shipping and a strong sense of design. I loved working with Zack on the SaaS app he built for me so I could get to revenue very quickly. I'd 100% recommend him to any other ambitious founder.",
     author: {
       name: 'KP',
       context: '',
@@ -151,17 +156,7 @@ const testimonials = [
     },
   },
   {
-    body: "I am lucky enough to work with Zack Gilbert as our own fractional CTO resource for software and coding at Week of the Website - he's taking on new projects and I couldn't recommend a better partner for success!",
-    author: {
-      name: 'Mallory Ulaszek',
-      title: 'Former CEO',
-      website: 'WeekOfTheWebsite.com',
-      handle: '',
-      imageUrl: malloryPhoto
-    }
-  },
-  {
-    body: 'I couldn’t imagine a better person to partner with if you want to test bringing an idea to life…trying to come up with something we can work on together!',
+    body: "I couldn't imagine a better person to partner with if you want to test bringing an idea to life...trying to come up with something we can work on together!",
     author: {
       name: 'Allen Penn',
       context: '',
@@ -170,16 +165,7 @@ const testimonials = [
     }
   },
   {
-    body: 'For everyone that wants to build an MVP, strongly recommend Zack as a sharp fast and great developer',
-    author: {
-      name: 'Miguel Muñoz Duarte',
-      context: '',
-      handle: 'mmduarte',
-      imageUrl: miguelPhoto
-    }
-  },
-  {
-    body: 'Anyone getting Zack for a month is lucky. He’s the unaffordable and unhirable combo of talented designer meets talented engineer meets experienced entrepreneur.',
+    body: "Anyone getting Zack for a month is lucky. He's the unaffordable and unhirable combo of talented designer meets talented engineer meets experienced entrepreneur.",
     author: {
       name: 'Seth Kravitz',
       context: '',
@@ -188,7 +174,7 @@ const testimonials = [
     },
   },
   /*{
-    body: 'For anyone who is looking to spin up a high quality mvp super quick @zackgilbert is your guy! He’s been doing this for 20 years....and now he’s sharing his talents with you.',
+    body: 'For anyone who is looking to spin up a high quality mvp super quick @zackgilbert is your guy! He's been doing this for 20 years....and now he's sharing his talents with you.',
     author: {
       name: 'Jesse Link 💭',
       context: '',
@@ -197,7 +183,7 @@ const testimonials = [
     }
   },
   {
-    body: 'Stop thinking. Get your MVP out there. @zackgilbert is incredible if you’re looking to get shit done.',
+    body: 'Stop thinking. Get your MVP out there. @zackgilbert is incredible if you're looking to get shit done.',
     author: {
       name: '⚡️Mei',
       context: '',
@@ -206,7 +192,7 @@ const testimonials = [
     }
   },
   {
-    body: 'Having used @leaderbirdco as a customer I’d say @zackgilbert is a pretty talented guy 👀',
+    body: 'Having used @leaderbirdco as a customer I'd say @zackgilbert is a pretty talented guy 👀',
     author: {
       name: 'Laura is building 🚀🧪💯',
       context: '',
@@ -250,42 +236,6 @@ function MailIcon(props) {
   )
 }
 
-function BriefcaseIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
-
-function ArrowDownIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
 function Article({ article }) {
   return (
     <Card as="article">
@@ -309,86 +259,6 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-function Resume() {
-  let resume = [
-    {
-      company: 'Able.com',
-      title: 'Engineering Lead',
-      logo: logoAble,
-      start: 'Nov 2020',
-      end: 'Mar 2023',
-    },
-    {
-      company: 'Foursquare',
-      title: 'Enterprise Solutions Engineer',
-      logo: logoFoursquare,
-      start: 'Mar 2018',
-      end: 'Sep 2022',
-    },
-    {
-      company: 'Highrise',
-      title: 'Software Engineer',
-      logo: logoHighrise,
-      start: 'Sep 2014',
-      end: 'May 2015',
-    },
-    {
-      company: 'Cloudbot',
-      title: 'Software Engineer & Product Manager',
-      logo: logoCloudbot,
-      start: 'Jan 2011',
-      end: 'Apr 2012',
-    },
-  ]
-
-  return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
-      </h2>
-      <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-            </div>
-            <dl className="flex flex-auto flex-wrap gap-x-2">
-              <dt className="sr-only">Company</dt>
-              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                {role.company}
-              </dd>
-              <dt className="sr-only">Role</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
-                {role.title}
-              </dd>
-              <dt className="sr-only">Date</dt>
-              <dd
-                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
-              >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
-              </dd>
-            </dl>
-          </li>
-        ))}
-      </ol>
-      <Button href="/GilbertZ-2023.pdf" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-      </Button>
-    </div>
-  )
-}
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -407,7 +277,7 @@ export function Testimonials() {
           <div key={featured.author.handle ? featured.author.handle : featured.author.name} className="mb-0 sm:inline-block sm:w-full">
             <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
               <blockquote className="text-gray-900">
-                <p>{`“${featured.body}”`}</p>
+                <p>{`"${featured.body}"`}</p>
               </blockquote>
               <figcaption className="mt-6 mx-auto place-content-center flex items-center gap-x-4">
                 <Image
@@ -419,10 +289,10 @@ export function Testimonials() {
                 <div>
                   <div className="font-semibold text-gray-900">{featured.author.name}</div>
                   {featured.author.context ? (
-                  <div className="text-gray-600">{`${featured.author.title} of ${featured.author.context}`}</div>
+                  <div className="text-gray-600">{featured.author.title ? `${featured.author.title} of ${featured.author.context}` : featured.author.context}</div>
                   ) : (
                     (featured.author.website) ? 
-                    <div className="text-gray-600"><a href={`https://${featured.author.website}`}>{`${featured.author.title} of ${featured.author.website}`}</a></div>
+                    <div className="text-gray-600"><a href={`https://${featured.author.website}`}>{featured.author.title ? `${featured.author.title} of ${featured.author.website}` : featured.author.website}</a></div>
                   : (
                   <div className="text-gray-600"><a href={`https://twitter.com/${featured.author.handle}`}>{`@${featured.author.handle}`}</a></div>
                   ))}
@@ -435,7 +305,7 @@ export function Testimonials() {
               <div key={testimonial.author.handle} className="mb-8 pt-8 sm:w-full sm:px-4">
                 <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
                   <blockquote className="text-gray-900">
-                    <p>{`“${testimonial.body}”`}</p>
+                    <p>{`"${testimonial.body}"`}</p>
                   </blockquote>
                   <figcaption className="mt-6 flex items-center gap-x-4">
                     <Image
@@ -447,10 +317,10 @@ export function Testimonials() {
                     <div>
                       <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
                       {testimonial.author.context ? (
-                      <div className="text-gray-600">{`${testimonial.author.title} of ${testimonial.author.context}`}</div>
+                      <div className="text-gray-600">{testimonial.author.title ? `${testimonial.author.title} of ${testimonial.author.context}` : testimonial.author.context}</div>
                       ) : (
                         (testimonial.author.website) ? 
-                        <div className="text-gray-600"><a href={`https://${testimonial.author.website}`}>{`${testimonial.author.title} of ${testimonial.author.website}`}</a></div>
+                        <div className="text-gray-600"><a href={`https://${testimonial.author.website}`}>{testimonial.author.title ? `${testimonial.author.title} of ${testimonial.author.website}` : testimonial.author.website}</a></div>
                       : (
                       <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
                       ))}
@@ -460,12 +330,38 @@ export function Testimonials() {
               </div>
             ))}
           </div>
-          <div className="-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3">
+          <div key={featured2.author.name} className="pt-8 sm:inline-block sm:w-full">
+            <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
+              <blockquote className="text-gray-900">
+                <p>{`"${featured2.body}"`}</p>
+              </blockquote>
+              <figcaption className="mt-6 mx-auto place-content-center flex items-center gap-x-4">
+                <Image
+                  src={featured2.author.imageUrl}
+                  alt=""
+                  className="h-10 w-10 rounded-full bg-gray-50"
+                  unoptimized
+                />
+                <div>
+                  <div className="font-semibold text-gray-900">{featured2.author.name}</div>
+                  {featured2.author.context ? (
+                  <div className="text-gray-600">{featured2.author.title ? `${featured2.author.title} of ${featured2.author.context}` : featured2.author.context}</div>
+                  ) : (
+                    (featured2.author.website) ?
+                    <div className="text-gray-600"><a href={`https://${featured2.author.website}`}>{featured2.author.title ? `${featured2.author.title} of ${featured2.author.website}` : featured2.author.website}</a></div>
+                  : (
+                  <div className="text-gray-600"><a href={`https://twitter.com/${featured2.author.handle}`}>{`@${featured2.author.handle}`}</a></div>
+                  ))}
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+          <div className="pt-8 sm:-mx-4 sm:columns-2 lg:columns-3">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.author.handle} className="pt-8 sm:inline-block sm:w-full sm:px-4">
+              <div key={testimonial.author.handle || testimonial.author.name} className="mb-8 break-inside-avoid sm:px-4">
                 <figure className="rounded-2xl bg-gray-50 p-8 text-sm leading-6">
                   <blockquote className="text-gray-900">
-                    <p>{`“${testimonial.body}”`}</p>
+                    <p>{`"${testimonial.body}"`}</p>
                   </blockquote>
                   <figcaption className="mt-6 flex items-center gap-x-4">
                     <Image
@@ -477,10 +373,10 @@ export function Testimonials() {
                     <div>
                       <div className="font-semibold text-gray-900">{testimonial.author.name}</div>
                       {testimonial.author.context ? (
-                      <div className="text-gray-600">{`${testimonial.author.title} of ${testimonial.author.context}`}</div>
+                      <div className="text-gray-600">{testimonial.author.title ? `${testimonial.author.title} of ${testimonial.author.context}` : testimonial.author.context}</div>
                       ) : (
                         (testimonial.author.website) ? 
-                        <div className="text-gray-600"><a href={`https://${testimonial.author.website}`}>{`${testimonial.author.title} of ${testimonial.author.website}`}</a></div>
+                        <div className="text-gray-600"><a href={`https://${testimonial.author.website}`}>{testimonial.author.title ? `${testimonial.author.title} of ${testimonial.author.website}` : testimonial.author.website}</a></div>
                       : (
                       <div className="text-gray-600"><a href={`https://twitter.com/${testimonial.author.handle}`}>{`@${testimonial.author.handle}`}</a></div>
                       ))}
@@ -503,15 +399,12 @@ export function CTA() {
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
           Interested in working together?
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600 dark:text-gray-400">
-          Currently available for contract or full time opportunities.
-        </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <a
             href="https://calendly.com/zackgilbert/30-min"
             className="rounded-md bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900 hover:bg-gray-600 dark:hover:bg-gray-300 px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
           >
-            Get in touch
+            Let's talk!
           </a>
           {/*<a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Learn more <span aria-hidden="true">→</span>
@@ -531,16 +424,16 @@ export default function Home({ articles }) {
         </title>
         <meta
           name="description"
-          content="I’m Zack, a builder, engineering lead, and father, based in Chicago, IL. I'm a business savvy, customer centric, product engineer that is a hard working, adaptable, and growth minded team player. It's very important to me to be a good listener and foster communication so I can help build strong relationships with customers, community, and team members."
+          content="I'm Zack, a builder, engineering lead, and father, based in Chicago, IL. I'm a business savvy, customer centric, product engineer that is a hard working, adaptable, and growth minded team player. It's very important to me to be a good listener and foster communication so I can help build strong relationships with customers, community, and team members."
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            I help people with deep industry knowledge build the tools they’ve always wanted.
+            I help people with deep industry knowledge build the tools they've always wanted.
           </h1>
           <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-            You know your business inside and out. You’ve been sketching ideas on napkins for years. I’m the technical partner who makes them real.
+            You know your business inside and out. You've been sketching ideas on napkins for years. I'm the technical partner who makes them real.
           </p>
           <div className="mt-6 flex gap-6">
             <div className="bluesky-flutter w-6 h-6">
@@ -567,16 +460,16 @@ export default function Home({ articles }) {
             />
           </div>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I like to think of myself as a business-savvy, customer-centric, product engineer with soft skills. That’s just a long-winded way of saying I help bridge technical and non-technical worlds to make sure that the end user’s experience is always top of mind. I love building projects that help solve real problems.
+            I like to think of myself as a business-savvy, customer-centric, product engineer with soft skills. That's just a long-winded way of saying I help bridge technical and non-technical worlds to make sure that the end user's experience is always top of mind. I love building projects that help solve real problems.
           </p>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’ve had successful exits from 4 of my projects and was previously a Solutions Engineer in <a href="https://foursquare.com" className="underline hover:no-underline">Foursquare</a>’s Chicago office where I helped enterprise companies integrate and optimize their geo-location needs. Most recently I was the engineering lead at <a href="https://able.com" className="underline hover:no-underline">Able.com</a>, where I was primarily responsible for the planning and execution of mobile and server development.
+            I've had successful exits from 4 of my projects and was previously a Solutions Engineer in <a href="https://foursquare.com" className="underline hover:no-underline">Foursquare</a>'s Chicago office where I helped enterprise companies integrate and optimize their geo-location needs. Most recently I was the engineering lead at <a href="https://able.com" className="underline hover:no-underline">Able.com</a>, where I was primarily responsible for the planning and execution of mobile and server development.
           </p>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            As one of the founding members of <a href="https://technori.com" className="underline hover:no-underline">Technori</a> and Chicago.concat(), I’ve been involved with the Chicago tech and developer communities since 2010.
+            As one of the founding members of <a href="https://technori.com" className="underline hover:no-underline">Technori</a> and Chicago.concat(), I've been involved with the Chicago tech and developer communities since 2010.
           </p>
           {/*<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            My passion for blending technology with creativity always keeps the end user’s experience top of mind. As one of the founding members of both Technori and Chicago.concat(), and as a mentor at 1871, I’ve been involved with the Chicago tech and developer communities since 2010. I’ve had successful exits from 4 of my (SaaS) projects, was previously an Enterprise Solutions Engineer at Foursquare, where I helped . I most recently worked as Engineering Lead at Able.com, where I built and managed an engineering team of full-time and contractor-based developers from around the world to build while helping independent workers manage their finances and taxes.
+            My passion for blending technology with creativity always keeps the end user's experience top of mind. As one of the founding members of both Technori and Chicago.concat(), and as a mentor at 1871, I've been involved with the Chicago tech and developer communities since 2010. I've had successful exits from 4 of my (SaaS) projects, was previously an Enterprise Solutions Engineer at Foursquare, where I helped . I most recently worked as Engineering Lead at Able.com, where I built and managed an engineering team of full-time and contractor-based developers from around the world to build while helping independent workers manage their finances and taxes.
           </p>*/}
         </div>
         <div className="mt-20 py-20 border-t border-zinc-300">
@@ -680,20 +573,25 @@ export default function Home({ articles }) {
         </ul>
         <p className="mt-20 text-center"><a href="https://docs.google.com/spreadsheets/d/12vxRYLiDF-cSlhvIf2hHiJ6oE1ZQD79s41yMkZIYIS0/edit?usp=sharing" className="underline hover:no-underline px-10 py-3 dark:text-gray-100">Full list of projects</a></p>
       </Container>
+      <Container>
+        <Testimonials />
+      </Container>
       <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+        <div className="mt-20 py-20 border-t border-zinc-300 mx-auto text-center">
+          <h2 className="text-lg font-semibold leading-8 tracking-tight text-zinc-900 dark:text-zinc-100">Articles</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+            Recent writing and notes.
+          </p>
+        </div>
+        <div className="mx-auto max-w-xl lg:max-w-none">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
           </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Resume />
-          </div>
         </div>
       </Container>
       <Container>
-        <Testimonials />
         <CTA />
       </Container>
     </>
