@@ -32,7 +32,7 @@
 | `src/pages/work.jsx` | Create. Full project list (recent + past + spreadsheet link). |
 | `src/pages/about.jsx` | Modify. Add "Kind words" section with demoted testimonial(s). |
 | `src/components/Header.jsx` | Modify. Re-enable nav (currently commented out at lines 411-412), new nav items. |
-| `src/components/Footer.jsx` | Modify. New nav items + keep User Manual. |
+| `src/components/Footer.jsx` | Modify. New nav items (lines 24-27) + keep User Manual. |
 
 ---
 
@@ -40,11 +40,13 @@
 
 ### Task 0: Branch setup
 
-- [ ] **Step 0.1: Create feature branch**
+- [ ] **Step 0.1: Ensure you're on the feature branch**
+
+The `homepage-repositioning` branch already exists (spec + plan committed and pushed; draft PR #1 open). Do not create it.
 
 ```bash
 cd /Users/zackgilbert/Developer/zackgilbert.com
-git checkout -b homepage-repositioning
+git checkout homepage-repositioning
 ```
 
 - [ ] **Step 0.2: Verify clean baseline build**
@@ -57,11 +59,12 @@ Expected: exits 0. If it fails before any changes, stop and report — the basel
 **Files:**
 - Create: `src/data/testimonials.js`
 
-All photo imports and testimonial text move verbatim from `src/pages/index.jsx:30-203` (do not rewrite quotes). Structure groups by intended placement.
+All photo imports and testimonial text move verbatim from `src/pages/index.jsx:30-203` (do not rewrite quotes) — with **one deliberate exception**: Vince's quote is intentionally shortened for the sales-page context; it ends at "…how often that can happen." (the original's closing sentence about family is trimmed). Structure groups by intended placement.
 
 - [ ] **Step 1.1: Create `src/data/testimonials.js`**
 
 ```js
+import allenPennPhoto from '@/images/photos/allenpenn.jpg'
 import paulJarvisPhoto from '@/images/photos/pauljarvis.jpg'
 import kpPhoto from '@/images/photos/kp.jpg'
 import malloryPhoto from '@/images/photos/mallory.jpg'
@@ -92,6 +95,7 @@ export const seth = {
 }
 
 // Placed after the Process section — the "first call" partnership quote.
+// Intentionally shortened; see task note above.
 export const vince = {
   body: "Zack is the first call when I need anything built, period. He is an amazingly talented, yet humble individual who listens more than he speaks and guides more than he corrects. He is able to get out of you what you want even when you can't quite tell him what it is. He is also extremely flexible and able to adapt and change at the drop of a hat, which if you have built anything from scratch you will know how often that can happen.",
   author: {
@@ -159,20 +163,15 @@ export const aboutTestimonials = [
     author: {
       name: 'Allen Penn',
       handle: 'allenpenn',
-      imageUrl: null, // allenPennPhoto import moves here too if kept — see note
+      imageUrl: allenPennPhoto,
     },
   },
 ]
 ```
 
-Note for implementer: `allenPennPhoto` (`@/images/photos/allenpenn.jpg`) — import it and set `imageUrl: allenPennPhoto` (the null above is a placeholder in this plan only, not in the code you write; the final file must contain no nulls or placeholder text).
+**Verification note:** there is no standalone check for this module — image imports only compile under webpack, and `next lint` no longer exists in Next 16 (the repo's `"lint"` script is also broken under ESLint 10; see Out of plan). The module gets its first real compile at Step 6.2's `npm run build`, which fails loudly on any syntax or bad-import error here.
 
-- [ ] **Step 1.2: Verify the module parses**
-
-Run: `node --input-type=module -e "console.log('syntax ok')" && npx next lint --file src/data/testimonials.js`
-Expected: no lint errors (image imports resolve only under webpack, so a plain `node` import won't work — lint is the check here).
-
-- [ ] **Step 1.3: Commit**
+- [ ] **Step 1.2: Commit**
 
 ```bash
 git add src/data/testimonials.js
@@ -209,7 +208,6 @@ export const clientStories = [
     story:
       'A tax expert who knew Section 280A cold. Now: compliance software that documents tax-free rental income for business owners.',
     link: { href: 'https://augustaplanner.com', label: 'augustaplanner.com' },
-    logo: projectAugustaPlanner,
   },
   {
     name: 'CPA Connect',
@@ -222,7 +220,6 @@ export const clientStories = [
     story:
       'Event organizers stuck bolting external ticket checkouts onto Squarespace. Now: ticketing that lives natively in Squarespace Commerce.',
     link: { href: 'https://eventuallyticketing.com', label: 'eventuallyticketing.com' },
-    logo: projectEventuallyTicketing,
   },
   // PENDING NAMING PERMISSION — Marion's build sprint. Flip on when approved;
   // it replaces the weakest story above (per spec §6).
@@ -292,9 +289,16 @@ export const pastProjects = [
 ]
 ```
 
-Implementer note: verify the Bon Vivant Cakes URL resolves before shipping; if not, omit the `link` (the `Card` pattern renders fine without one — see how `CPA Connect` has no logo today).
+(Client-story cards render no logos — `Proof.jsx` deliberately shows name/story/link only — so `clientStories` entries carry no `logo` fields. The logo imports at the top are used by `recentProjects`/`pastProjects` for /work.)
 
-- [ ] **Step 2.2: Commit**
+**Verification note:** like Task 1, this module gets its first compile at the build in Step 10.2.
+
+- [ ] **Step 2.2: Verify the Bon Vivant Cakes URL resolves**
+
+Run: `curl -sIL -o /dev/null -w "%{http_code}" https://bonvivantcakes.com`
+Expected: `200`. If not, remove the `link` field from that story — the Proof card renders fine without one.
+
+- [ ] **Step 2.3: Commit**
 
 ```bash
 git add src/data/projects.js
@@ -306,7 +310,7 @@ git commit -m "Extract projects to data module; add client-story framings"
 **Files:**
 - Create: `src/components/home/Testimonial.jsx`
 
-Replaces the 4x-duplicated figure markup in current `index.jsx:277-388`. Attribution logic (context → website → handle) is preserved exactly.
+Replaces the 4x-duplicated figure markup in current `index.jsx:277-388`. Attribution logic (context → website → handle) is preserved exactly. First compiled at Step 6.2's build, when Emily's quote is wired into the homepage.
 
 - [ ] **Step 3.1: Create `src/components/home/Testimonial.jsx`**
 
@@ -466,11 +470,58 @@ export function Hero() {
 }
 ```
 
-- [ ] **Step 4.2: Commit**
+- [ ] **Step 4.2: Rewrite `src/pages/index.jsx` as a minimal composer**
+
+This replaces the old homepage NOW so that every subsequent section gets real build verification the moment it lands (there is no working lint in this repo — the build is the only automated check). Sections are appended in Tasks 5–11; Task 12 holds the final authoritative listing.
+
+```jsx
+import Head from 'next/head'
+
+import { Container } from '@/components/Container'
+import { Hero } from '@/components/home/Hero'
+import { generateRssFeed } from '@/lib/generateRssFeed'
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>
+          Zack Gilbert - You built the first version. Let&apos;s make it real.
+        </title>
+        <meta
+          name="description"
+          content="I help domain experts turn their almost-software — spreadsheets, AI-built apps, prototypes — into production software people can rely on. Pricing, process, and deliverables right on this page."
+        />
+      </Head>
+      <Container className="mt-9">
+        <Hero />
+        {/* Sections land here one task at a time; final order in Task 12 */}
+      </Container>
+    </>
+  )
+}
+
+export async function getStaticProps() {
+  // RSS generation intentionally stays on the homepage build even though
+  // articles no longer render here (see spec: Technical notes).
+  if (process.env.NODE_ENV === 'production') {
+    await generateRssFeed()
+  }
+
+  return { props: {} }
+}
+```
+
+- [ ] **Step 4.3: Build**
+
+Run: `npm run build`
+Expected: exits 0. First verification of Hero, the SocialIcons imports, and the articles-free `getStaticProps`.
+
+- [ ] **Step 4.4: Commit**
 
 ```bash
-git add src/components/home/Hero.jsx
-git commit -m "Add Hero section with almost-software positioning"
+git add src/components/home/Hero.jsx src/pages/index.jsx
+git commit -m "Add Hero section; rewrite homepage as incremental composer"
 ```
 
 ### Task 5: SelfQualification section
@@ -529,10 +580,17 @@ export function SelfQualification() {
 }
 ```
 
-- [ ] **Step 5.2: Commit**
+- [ ] **Step 5.2: Wire into homepage and build**
+
+In `src/pages/index.jsx`: add `import { SelfQualification } from '@/components/home/SelfQualification'` and render `<SelfQualification />` after `<Hero />`.
+
+Run: `npm run build`
+Expected: exits 0.
+
+- [ ] **Step 5.3: Commit**
 
 ```bash
-git add src/components/home/SelfQualification.jsx
+git add src/components/home/SelfQualification.jsx src/pages/index.jsx
 git commit -m "Add self-qualification checklist section"
 ```
 
@@ -642,19 +700,52 @@ export function Pricing() {
 }
 ```
 
-- [ ] **Step 6.2: Commit**
+- [ ] **Step 6.2: Wire into homepage and build**
+
+In `src/pages/index.jsx`:
+
+1. Add imports:
+
+```jsx
+import { Pricing } from '@/components/home/Pricing'
+import { Testimonial } from '@/components/home/Testimonial'
+import { emily } from '@/data/testimonials'
+```
+
+2. Add the adjacent-testimonial helper above `Home` (used for Seth and Vince in later tasks too):
+
+```jsx
+function AdjacentTestimonial({ testimonial }) {
+  return (
+    <div className="mx-auto mt-12 max-w-2xl">
+      <Testimonial testimonial={testimonial} featured />
+    </div>
+  )
+}
+```
+
+3. Render after `<SelfQualification />`:
+
+```jsx
+<Pricing />
+<AdjacentTestimonial testimonial={emily} />
+```
+
+Run: `npm run build`
+Expected: exits 0. First compile of `src/data/testimonials.js` and `Testimonial.jsx`.
+
+- [ ] **Step 6.3: Commit**
 
 ```bash
-git add src/components/home/Pricing.jsx
+git add src/components/home/Pricing.jsx src/pages/index.jsx
 git commit -m "Add pricing section with three published packages"
 ```
 
 ### Task 7: Chunk 1 verification checkpoint
 
-- [ ] **Step 7.1: Lint everything created so far**
+- [ ] **Step 7.1: Visual checkpoint of the partial page**
 
-Run: `npx next lint`
-Expected: no errors in `src/data/` or `src/components/home/`. (Components aren't rendered anywhere yet — build verification happens in Chunk 2 when index.jsx composes them.)
+Run `npm run dev`, open `http://localhost:8080`. Verify: hero headline renders, checklist shows all five items, three price cards show $1,500 / $5,000 / $2,500, Emily's quote appears after pricing, and the `#pricing` anchor from the hero CTA scrolls. Check dark mode.
 
 ---
 
@@ -667,7 +758,7 @@ Expected: no errors in `src/data/` or `src/components/home/`. (Components aren't
 
 - [ ] **Step 8.1: Create `src/components/home/Deliverables.jsx`**
 
-The audit-report screenshot asset does not exist yet (spec Technical notes) — ship the text-only version now; the visual mock is a follow-up, so structure leaves room for it.
+**Deliberate scope call:** the spec's fallback (a stylized mock of the audit report's table of contents) is deferred along with the real screenshot to "Out of plan" — this task ships text-only. The grouped-list structure below leaves an obvious slot for the visual later.
 
 ```jsx
 const groups = [
@@ -738,10 +829,21 @@ export function Deliverables() {
 }
 ```
 
-- [ ] **Step 8.2: Commit**
+- [ ] **Step 8.2: Wire into homepage and build**
+
+In `src/pages/index.jsx`: add imports for `Deliverables` and `seth` (from `@/data/testimonials`), then render after Emily's testimonial:
+
+```jsx
+<Deliverables />
+<AdjacentTestimonial testimonial={seth} />
+```
+
+Run: `npm run build` — exits 0.
+
+- [ ] **Step 8.3: Commit**
 
 ```bash
-git add src/components/home/Deliverables.jsx
+git add src/components/home/Deliverables.jsx src/pages/index.jsx
 git commit -m "Add deliverables section with ownership callout"
 ```
 
@@ -806,10 +908,21 @@ export function Process() {
 }
 ```
 
-- [ ] **Step 9.2: Commit**
+- [ ] **Step 9.2: Wire into homepage and build**
+
+In `src/pages/index.jsx`: add imports for `Process` and `vince`, then render after Seth's testimonial:
+
+```jsx
+<Process />
+<AdjacentTestimonial testimonial={vince} />
+```
+
+Run: `npm run build` — exits 0.
+
+- [ ] **Step 9.3: Commit**
 
 ```bash
-git add src/components/home/Process.jsx
+git add src/components/home/Process.jsx src/pages/index.jsx
 git commit -m "Add process section with Friday demos and manual callout"
 ```
 
@@ -863,10 +976,16 @@ export function Proof() {
 }
 ```
 
-- [ ] **Step 10.2: Commit**
+- [ ] **Step 10.2: Wire into homepage and build**
+
+In `src/pages/index.jsx`: add the `Proof` import, render `<Proof />` after Vince's testimonial.
+
+Run: `npm run build` — exits 0. First compile of `src/data/projects.js`.
+
+- [ ] **Step 10.3: Commit**
 
 ```bash
-git add src/components/home/Proof.jsx
+git add src/components/home/Proof.jsx src/pages/index.jsx
 git commit -m "Add proof section with client stories and testimonials"
 ```
 
@@ -943,21 +1062,27 @@ export function Faq() {
 }
 ```
 
-- [ ] **Step 11.2: Commit**
+- [ ] **Step 11.2: Wire into homepage and build**
+
+In `src/pages/index.jsx`: add the `Faq` import, render `<Faq />` after `<Proof />`, and delete the placeholder comment (`{/* Sections land here ... */}`).
+
+Run: `npm run build` — exits 0.
+
+- [ ] **Step 11.3: Commit**
 
 ```bash
-git add src/components/home/Faq.jsx
+git add src/components/home/Faq.jsx src/pages/index.jsx
 git commit -m "Add FAQ and final CTA section"
 ```
 
-### Task 12: Rewrite homepage as composer
+### Task 12: Verify final homepage composition
 
 **Files:**
-- Modify: `src/pages/index.jsx` (full rewrite)
+- Verify (and reconcile if needed): `src/pages/index.jsx`
 
-- [ ] **Step 12.1: Replace `src/pages/index.jsx` entirely**
+- [ ] **Step 12.1: Confirm `src/pages/index.jsx` matches this final listing**
 
-Key points: articles/bio/projects/testimonial-wall all removed; `generateRssFeed()` stays (spec Technical notes); adjacent testimonials interleave between sections (Emily after Pricing, Seth after Deliverables, Vince after Process).
+After the incremental wiring in Tasks 4–11, the file should match the listing below exactly (section order: Hero → SelfQualification → Pricing → Emily → Deliverables → Seth → Process → Vince → Proof → Faq). Reconcile any drift.
 
 ```jsx
 import Head from 'next/head'
@@ -1030,12 +1155,14 @@ Expected: exits 0, `/` page generated.
 
 Run `npm run dev`, open `http://localhost:8080` (Playwright MCP browser tools per user preference). Verify: hero headline renders, `#pricing` and `#process` anchors scroll correctly, three price cards show $1,500 / $5,000 / $2,500, Emily/Seth/Vince quotes appear between sections, dark mode looks sane (toggle it).
 
-- [ ] **Step 12.4: Commit**
+- [ ] **Step 12.4: Commit reconciliation diffs (if any)**
 
 ```bash
 git add src/pages/index.jsx
-git commit -m "Rewrite homepage as Fletch-style sales page"
+git commit -m "Reconcile homepage composition with plan"
 ```
+
+Skip the commit if Step 12.1 found no drift.
 
 ### Task 13: /work page
 
@@ -1055,8 +1182,9 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { recentProjects, pastProjects } from '@/data/projects'
 
 function LinkIcon(props) {
-  /* copy the LinkIcon svg verbatim from the pre-rewrite src/pages/index.jsx
-     (git show HEAD~1:src/pages/index.jsx, lines 205-214) */
+  /* copy the LinkIcon svg verbatim from the pre-rewrite homepage:
+     `git show master:src/pages/index.jsx` lines 205-214
+     (anchored to master, not HEAD~N, so interposed commits can't shift it) */
 }
 
 function ProjectGrid({ projects, columns }) {
@@ -1218,6 +1346,8 @@ Replace the `NavLink` list in `Footer.jsx:24-27` with:
 
 (`/manual` stays footer-only per spec.)
 
+Known cosmetic behavior, not a bug: `NavItem` computes active state via `useRouter().pathname === href`, which never matches hash hrefs — "Pricing" and "How it works" will never show the active underline. Expected; don't chase it during verification.
+
 - [ ] **Step 15.4: Build, verify nav on desktop + mobile widths, commit**
 
 Verify: nav visible on all pages; anchor links from a non-home page (e.g. `/about` → `/#pricing`) navigate home and scroll; mobile menu opens.
@@ -1237,8 +1367,8 @@ Expected: exits 0; pages `/`, `/about`, `/work`, `/articles`, `/manual`, `/thank
 
 - [ ] **Step 16.2: RSS check**
 
-Run: `NODE_ENV=production npm run build && ls public/rss/feed.xml`
-Expected: feed file exists (confirm actual output path by reading `src/lib/generateRssFeed.js` first — adjust `ls` target if it differs).
+Run: `npm run build && ls public/rss/feed.xml`
+Expected: feed file exists (`generateRssFeed.js` writes `./public/rss/feed.xml` and `feed.json`; `next build` already sets production mode).
 
 - [ ] **Step 16.3: Browser walkthrough (the Fletch test)**
 
@@ -1256,3 +1386,5 @@ Deployment (`npm run deploy`) is explicitly the user's call after reviewing the 
 - Marion client story: commented out in `src/data/projects.js` until naming permission.
 - Audit-report screenshot/mock for Deliverables.
 - Interactive self-diagnostic, speaking page, staff photos (spec Out of Scope).
+- `package.json`'s `"lint": "next lint"` script is broken under Next 16 (`next lint` removed) and ESLint 10 dropped `.eslintrc.json` support — needs an `eslint.config.js` migration as a separate fix.
+- levels.io / joshpigford-style full projects dashboard: evolve `/work` + `src/data/projects.js` with status/year/outcome fields into a complete, self-maintained project list, replacing the stale Google Sheets link.
