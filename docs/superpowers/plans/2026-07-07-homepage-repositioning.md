@@ -296,7 +296,7 @@ export const pastProjects = [
 - [ ] **Step 2.2: Verify the Bon Vivant Cakes URL resolves**
 
 Run: `curl -sIL -o /dev/null -w "%{http_code}" https://bonvivantcakes.com`
-Expected: `200`. If not, remove the `link` field from that story — the Proof card renders fine without one.
+Expected: `200`. If non-200, retry with GET before concluding it's dead (some hosts reject HEAD): `curl -s -o /dev/null -w "%{http_code}" -L https://bonvivantcakes.com`. Only if both fail, remove the `link` field from that story — the Proof card renders fine without one.
 
 - [ ] **Step 2.3: Commit**
 
@@ -745,7 +745,7 @@ git commit -m "Add pricing section with three published packages"
 
 - [ ] **Step 7.1: Visual checkpoint of the partial page**
 
-Run `npm run dev`, open `http://localhost:8080`. Verify: hero headline renders, checklist shows all five items, three price cards show $1,500 / $5,000 / $2,500, Emily's quote appears after pricing, and the `#pricing` anchor from the hero CTA scrolls. Check dark mode.
+Run `npm run dev`, open `http://localhost:8080` (Playwright MCP browser tools per user preference). Verify: hero headline renders, checklist shows all five items, three price cards show $1,500 / $5,000 / $2,500, Emily's quote appears after pricing, and the `#pricing` anchor from the hero CTA scrolls. Check dark mode.
 
 ---
 
@@ -1304,7 +1304,7 @@ git commit -m "Add demoted testimonials to /about"
 
 **Files:**
 - Modify: `src/components/Header.jsx` (nav lists + re-enable commented block at lines 410-413)
-- Modify: `src/components/Footer.jsx` (nav list at lines 23-28)
+- Modify: `src/components/Footer.jsx` (nav list at lines 24-27)
 
 - [ ] **Step 15.1: Update Header nav items**
 
