@@ -131,8 +131,9 @@ Week-by-week strip for the sprint:
   - **Augusta Planner** — Section 280A tax expertise → compliance SaaS
   - **CPA Connect** — accounting-firm operations → practice management platform
   - **Eventually Ticketing** — Squarespace-native event ticketing
-  - When Socrates'/Marion's projects get naming permission, they replace the
-    weakest of the above.
+  - When the projects built for Socrates and Marion (two recent build-sprint
+    clients, alongside Will's retainer) get naming permission, they replace
+    the weakest of the above.
 
 ### 7. FAQ + final CTA
 
@@ -174,6 +175,10 @@ which this spec removes/restructures) becomes:
 
 Footer mirrors the same set. The Calendly CTA stays visually distinct from
 nav links (button in header or hero only).
+
+The existing "User Manual" link (`/manual`) drops out of the header — it's
+not part of the sales narrative — but stays in the footer: it's a useful
+"how to work with me" artifact for clients who have already engaged.
 
 ### Technical notes
 
