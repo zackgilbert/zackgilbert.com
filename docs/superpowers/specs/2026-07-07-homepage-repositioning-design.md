@@ -109,6 +109,10 @@ Week-by-week strip for the sprint:
 - **Launch:** deploy, handbook, walkthrough. Then partnership or ride solo —
   no lock-in either way.
 
+At the end of the process strip, a small callout: "Want the fine print on
+how I work? I keep a user manual." → links to `/manual`. This rewards the
+diligent prospect and shows working style transparently.
+
 ### 6. Proof
 
 - Curate to ~7 testimonials. Lead: Emily Nejad (domain expert + business
@@ -131,9 +135,11 @@ Week-by-week strip for the sprint:
   - **Augusta Planner** — Section 280A tax expertise → compliance SaaS
   - **CPA Connect** — accounting-firm operations → practice management platform
   - **Eventually Ticketing** — Squarespace-native event ticketing
-  - When the projects built for Socrates and Marion (two recent build-sprint
-    clients, alongside Will's retainer) get naming permission, they replace
-    the weakest of the above.
+  - Socrates' and Marion's projects were both real build sprints worth
+    highlighting. Socrates' story goes live once his testimonial/naming
+    approval lands. Marion's story ships **in the code but commented out**
+    (same pattern as the pending testimonials) — ready to flip on when Zack
+    gets the nod. Each replaces the weakest of the four above when enabled.
 
 ### 7. FAQ + final CTA
 
