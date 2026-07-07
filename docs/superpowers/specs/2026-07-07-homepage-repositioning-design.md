@@ -111,14 +111,28 @@ Week-by-week strip for the sprint:
 
 ### 6. Proof
 
-- Curate to ~5 testimonials. Lead: Emily Nejad (domain expert + business
+- Curate to ~7 testimonials. Lead: Emily Nejad (domain expert + business
   outcome) and Seth Kravitz. Keep: Vince, KP, Mallory. Move résumé-flavored
-  ones (e.g., Foursquare manager) to /about.
+  ones (e.g., Gareth Paul Jones / Foursquare manager) to /about.
+- **Two new testimonials, pending client approval:** Will (fractional-CTO
+  retainer — placed next to the Partnership tier) and Socrates (spreadsheet/
+  vibecode buildout — placed next to the Build Sprint / pricing). Drafts
+  exist; final copy, names, titles, and one concrete specific each are
+  awaiting client review. Implementation should build the slots and ship
+  without them if approval hasn't landed.
 - Prefer placing testimonials adjacent to relevant sections (Emily near
-  pricing, Vince near partnership) over one monolithic wall.
-- Projects section becomes 3-4 client stories framed as evidence
-  ("Bon Vivant Cakes — spreadsheet scheduling → checkout flow"), not a
-  portfolio grid.
+  pricing, Vince/Will near partnership, Socrates near the sprint) over one
+  monolithic wall.
+- Projects section becomes 3-4 client stories framed as evidence, not a
+  portfolio grid. Initial set, reusing existing descriptions reframed as
+  "domain problem → shipped software":
+  - **Bon Vivant Cakes** — cake-shop scheduling: spreadsheet → checkout flow
+    (pairs with Emily's testimonial)
+  - **Augusta Planner** — Section 280A tax expertise → compliance SaaS
+  - **CPA Connect** — accounting-firm operations → practice management platform
+  - **Eventually Ticketing** — Squarespace-native event ticketing
+  - When Socrates'/Marion's projects get naming permission, they replace the
+    weakest of the above.
 
 ### 7. FAQ + final CTA
 
@@ -126,16 +140,50 @@ Short FAQ: stack choice; what if the build runs past 2 months; working with
 existing teams; what happens if we stop working together (nothing bad — it's
 all in your accounts). Single repeated CTA: book the 30-min call.
 
+Draft answer for the overrun question (the objection the monthly-billing
+model hinges on): "Most v1s ship in about two months. If yours is running
+long, you'll know weeks ahead — we fix the v1 scope in writing before we
+start and you see a demo every Friday. Billing is monthly, so there's never
+a surprise invoice, and you can stop at any month boundary and keep
+everything built so far."
+
 ## Site Restructure
 
 - **/** — the sales page above. Bio paragraphs, career history, Technori/
   community content, and the articles feed are removed from the homepage.
-- **/about** — current bio, career history, community involvement, full
-  testimonial set, staff/headshot photo.
-- **/work** — full project list (recent + past + link to the spreadsheet).
-- **/articles** — unchanged.
+- **/about** — current bio, career history, community involvement, and the
+  demoted/overflow testimonials. Uses the existing headshot already on the
+  page (new staff-style photography remains out of scope).
+- **/work** — new page: full project list (recent + past + link to the
+  spreadsheet).
+- **/articles** — page content unchanged, but it must regain a navigation
+  link (see nav spec below) since the homepage feed goes away.
 - The stale $5k/month "Let's Build Something" section is replaced entirely
   by the new pricing section.
+
+### Navigation
+
+Header nav (currently links to `/#projects` and `/#testimonials`, both of
+which this spec removes/restructures) becomes:
+
+- **Pricing** → `/#pricing`
+- **How it works** → `/#process`
+- **Work** → `/work`
+- **Articles** → `/articles`
+- **About** → `/about`
+
+Footer mirrors the same set. The Calendly CTA stays visually distinct from
+nav links (button in header or hero only).
+
+### Technical notes
+
+- `generateRssFeed()` currently runs in the homepage's `getStaticProps`
+  (src/pages/index.jsx). Removing the articles feed from the homepage must
+  not drop RSS generation — keep the call there or relocate it to
+  `/articles`' `getStaticProps`.
+- The audit-report screenshot in Deliverables does not exist yet as an
+  asset. Fallback: a stylized mock of the report's table of contents in the
+  site's existing design language; swap in a redacted real report later.
 
 ## Out of Scope (for now)
 
