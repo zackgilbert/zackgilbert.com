@@ -3,7 +3,18 @@ import Head from 'next/head'
 import { Container } from '@/components/Container'
 import { Hero } from '@/components/home/Hero'
 import { SelfQualification } from '@/components/home/SelfQualification'
+import { Pricing } from '@/components/home/Pricing'
+import { Testimonial } from '@/components/home/Testimonial'
+import { emily } from '@/data/testimonials'
 import { generateRssFeed } from '@/lib/generateRssFeed'
+
+function AdjacentTestimonial({ testimonial }) {
+  return (
+    <div className="mx-auto mt-12 max-w-2xl">
+      <Testimonial testimonial={testimonial} featured />
+    </div>
+  )
+}
 
 export default function Home() {
   return (
@@ -20,6 +31,8 @@ export default function Home() {
       <Container className="mt-9">
         <Hero />
         <SelfQualification />
+        <Pricing />
+        <AdjacentTestimonial testimonial={emily} />
         {/* Sections land here one task at a time; final order in Task 12 */}
       </Container>
     </>
