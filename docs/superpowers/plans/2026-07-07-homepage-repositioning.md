@@ -771,6 +771,34 @@ Run `npm run dev`, open `http://localhost:8080` (Playwright MCP browser tools pe
 
 ## Chunk 2: Remaining sections, pages, nav, and verification
 
+### Task 7.5: Quality-review polish (from Tasks 4-7 review)
+
+**Files:**
+- Create: `src/data/site.js`
+- Modify: `src/components/home/Hero.jsx`
+- Modify: `src/components/home/SelfQualification.jsx`
+
+- [ ] **Step 7.5.1: Create `src/data/site.js`** (single source of truth for the booking URL; Faq.jsx imports it too in Task 11):
+
+```js
+export const CALENDLY_URL = 'https://calendly.com/zackgilbert/30-min'
+```
+
+- [ ] **Step 7.5.2: Apply polish edits**
+
+1. `Hero.jsx`: replace the local `const CALENDLY_URL = ...` with `import { CALENDLY_URL } from '@/data/site'`.
+2. `Hero.jsx`: wrap the ↓ in the pricing CTA: `See pricing <span aria-hidden="true">↓</span>` (screen readers shouldn't announce "downwards arrow").
+3. `Hero.jsx` and `SelfQualification.jsx`: change `text-zinc-500 dark:text-zinc-500` to just `text-zinc-500` (the dark variant is a no-op).
+4. `SelfQualification.jsx`: add `aria-live="polite"` to the closer `<p>` so the "That's a match" flip is announced to assistive tech.
+
+- [ ] **Step 7.5.3: Build and commit**
+
+```bash
+npm run build   # exit 0
+git add src/data/site.js src/components/home/Hero.jsx src/components/home/SelfQualification.jsx
+git commit -m "Polish: shared Calendly constant, a11y attributes, class cleanup"
+```
+
 ### Task 8: Deliverables section
 
 **Files:**
@@ -1019,7 +1047,7 @@ git commit -m "Add proof section with client stories and testimonials"
 The overrun answer is final copy from the spec. Other answers drafted to the same altitude.
 
 ```jsx
-const CALENDLY_URL = 'https://calendly.com/zackgilbert/30-min'
+import { CALENDLY_URL } from '@/data/site'
 
 const faqs = [
   {
