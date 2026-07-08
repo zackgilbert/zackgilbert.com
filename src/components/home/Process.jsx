@@ -17,7 +17,7 @@ const stages = [
 
 export function Process() {
   return (
-    <section id="process" className="mt-20 border-t border-zinc-300 py-16 dark:border-zinc-700">
+    <section id="process" className="mt-20 scroll-mt-20 border-t border-zinc-300 py-16 dark:border-zinc-700">
       <div className="mx-auto max-w-2xl">
         <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
           What working with me looks like
