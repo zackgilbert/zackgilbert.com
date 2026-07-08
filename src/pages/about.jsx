@@ -10,6 +10,8 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
+import { Testimonial } from '@/components/home/Testimonial'
+import { aboutTestimonials } from '@/data/testimonials'
 import portraitImage from '@/images/headshot.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -96,6 +98,16 @@ export default function About() {
                 zack@zackgilbert.com
               </SocialLink>
             </ul>
+          </div>
+        </div>
+        <div className="mt-24 border-t border-zinc-100 pt-16 dark:border-zinc-700/40">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+            Kind words from people I&apos;ve worked with
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {aboutTestimonials.map((testimonial) => (
+              <Testimonial key={testimonial.author.name} testimonial={testimonial} />
+            ))}
           </div>
         </div>
       </Container>
