@@ -29,7 +29,7 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="I help domain experts turn their almost-software — spreadsheets, AI-built apps, prototypes — into production software people can rely on. Pricing, process, and deliverables right on this page."
+          content="I help domain experts turn their almost-software (spreadsheets, AI-built apps, prototypes) into production software people can rely on. Pricing, process, and deliverables right on this page."
         />
       </Head>
       <Container className="mt-9">

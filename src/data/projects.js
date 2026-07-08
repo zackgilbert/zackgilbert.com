@@ -52,20 +52,20 @@ export const recentProjects = [
   {
     name: 'Just Send It',
     description:
-      'Dead-simple email marketing for creators. Send emails to your list straight from your favorite email client — no templates, no logins, no fuss.',
+      'Dead-simple email marketing for creators. Send emails to your list straight from your favorite email client. No templates, no logins, no fuss.',
     link: { href: 'https://justsendit.email', label: 'justsendit.email' },
     logo: projectJustSendIt,
   },
   {
     name: 'CPA Connect',
     description:
-      'Practice management platform for accounting firms — streamlining client management, project workflows, team coordination, and billing.',
+      'Practice management platform for accounting firms, streamlining client management, project workflows, team coordination, and billing.',
     link: { href: 'https://mycpaconnect.com', label: 'mycpaconnect.com' },
   },
   {
     name: 'Eventually Ticketing',
     description:
-      'Event ticketing that integrates natively with Squarespace Commerce — no external checkouts or workarounds needed.',
+      'Event ticketing that integrates natively with Squarespace Commerce. No external checkouts or workarounds needed.',
     link: { href: 'https://eventuallyticketing.com', label: 'eventuallyticketing.com' },
     logo: projectEventuallyTicketing,
   },

@@ -3,11 +3,11 @@ import Link from 'next/link'
 const stages = [
   {
     label: 'Before we start',
-    body: 'A 30-minute call. I look at your spreadsheet or app. We decide: audit first, or straight to a sprint. Either way, the v1 scope gets fixed in writing before any money moves.',
+    body: 'A 30-minute call, then I look at your spreadsheet or app. Every engagement starts with the audit, so we both know exactly what we’re working with. The v1 scope gets fixed in writing before any money moves.',
   },
   {
     label: 'Weeks 1–8',
-    body: 'I build in your accounts from day one. You see a demo every Friday — 15 minutes, Loom or live. You course-correct weekly, not at the end.',
+    body: 'I build in your accounts from day one. You see a demo every Friday: 15 minutes, Loom or live. You course-correct weekly, not at the end.',
   },
   {
     label: 'Launch',

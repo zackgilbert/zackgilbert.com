@@ -4,7 +4,7 @@ const packages = [
     price: '$1,500',
     cadence: 'fixed, one week',
     blurb:
-      'Send me your spreadsheet, your vibecoded app, or both. You get a plain-English report: what’s solid, what’s dangerous, and what to do next — whether or not you hire me to do it.',
+      'Send me your spreadsheet, your vibecoded app, or both. You get a plain-English report: what’s solid, what’s dangerous, and what to do next, whether or not you hire me to do it.',
     bullets: [
       'Security, data-loss, and billing-bug review',
       'Prioritized fix list in plain English',
@@ -18,9 +18,10 @@ const packages = [
     price: '$5,000',
     cadence: 'per month · most v1s ship in ~2 months',
     blurb:
-      'Full speed, spreadsheet or rough app in, production software out. We fix the v1 scope in writing before we start.',
+      'Full speed: spreadsheet or rough app in, production software out. Every sprint starts with the full audit, and we fix the v1 scope in writing before we build.',
     bullets: [
-      'Demo every Friday — course-correct weekly',
+      'Includes the Roadmap & Risk Audit',
+      'Demo every Friday, so we course-correct weekly',
       'Built in your accounts from day one',
       'Launch: deploy, handbook, walkthroughs',
       'Stop at any month boundary, keep everything',
@@ -52,7 +53,7 @@ export function Pricing() {
           Pricing &amp; packages
         </h2>
         <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-          Real prices, listed up front — so you can think it over before we
+          Real prices, listed up front, so you can think it over before we
           ever talk.
         </p>
       </div>

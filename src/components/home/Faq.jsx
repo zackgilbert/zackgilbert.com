@@ -4,22 +4,22 @@ const faqs = [
   {
     question: 'What if my build takes longer than two months?',
     answer:
-      'Most v1s ship in about two months. If yours is running long, you’ll know weeks ahead — we fix the v1 scope in writing before we start and you see a demo every Friday. Billing is monthly, so there’s never a surprise invoice, and you can stop at any month boundary and keep everything built so far.',
+      'Most v1s ship in about two months. If yours is running long, you’ll know weeks ahead, because we fix the v1 scope in writing before we start and you see a demo every Friday. Billing is monthly, so there’s never a surprise invoice, and you can stop at any month boundary and keep everything built so far.',
   },
   {
     question: 'What do you build with?',
     answer:
-      'Boring, proven technology — Ruby on Rails or Next.js, Postgres, and standard hosting. The kind of stack any competent developer can pick up after me. No exotic frameworks you’ll be stuck maintaining.',
+      'Boring, proven technology: Ruby on Rails or Next.js, Postgres, and standard hosting. The kind of stack any competent developer can pick up after me. No exotic frameworks you’ll be stuck maintaining.',
   },
   {
     question: 'Do you work with existing developers or teams?',
     answer:
-      'Yes. Cleanup engagements often mean building on whatever — or whoever — came before. And no judgment about what I find: getting a first version working at all is the hard part. My job is making it solid.',
+      'Yes. Cleanup engagements often mean building on whatever (or whoever) came before. And no judgment about what I find: getting a first version working at all is the hard part. My job is making it solid.',
   },
   {
     question: 'What happens if we stop working together?',
     answer:
-      'Nothing bad. Everything already lives in your accounts — code, hosting, domain, documentation. You keep it all and any developer can pick up where I left off. That’s by design.',
+      'Nothing bad. Everything already lives in your accounts: code, hosting, domain, documentation. You keep it all and any developer can pick up where I left off. That’s by design.',
   },
 ]
 

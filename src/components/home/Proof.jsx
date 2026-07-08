@@ -22,7 +22,7 @@ export function Proof() {
             {project.link && (
               <a
                 href={project.link.href}
-                className="mt-4 inline-block text-sm font-medium text-zinc-400 hover:text-teal-500 dark:text-zinc-500"
+                className="mt-4 inline-block text-sm font-medium text-zinc-500 underline hover:text-teal-500 hover:no-underline dark:text-zinc-400"
               >
                 {project.link.label}
               </a>

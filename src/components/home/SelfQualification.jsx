@@ -2,10 +2,10 @@ import { useState } from 'react'
 
 const checklist = [
   'Your business runs on a spreadsheet only you fully understand',
-  'You built something with AI tools (Lovable, Replit, Cursor) and it works — but you’re afraid to touch it',
+  'You built something with AI tools (Lovable, Replit, Cursor) and it works, but you’re afraid to touch it',
   'Real customers or real money now depend on it, and that’s starting to scare you',
   'An agency quoted you $50k+ and six months',
-  'You know exactly what the software should do — you just can’t build it yourself',
+  'You know exactly what the software should do. You just can’t build it yourself',
 ]
 
 export function SelfQualification() {
@@ -46,12 +46,12 @@ export function SelfQualification() {
           }
         >
           {count >= 2
-            ? 'That’s a match — we should talk.'
+            ? 'That’s a match. We should talk.'
             : 'If you checked two or more, we should talk.'}
         </p>
         <p className="mt-2 text-sm text-zinc-500">
           Looking for a technical cofounder or a full dev team? I&apos;m
-          probably not your guy — but book a call anyway and I&apos;ll point
+          probably not your guy, but book a call anyway and I&apos;ll point
           you in the right direction.
         </p>
       </div>

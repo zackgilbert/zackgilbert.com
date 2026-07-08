@@ -23,13 +23,13 @@ export function Hero() {
         You built the first version. Let&apos;s make it real.
       </h1>
       <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
-        You know your business cold — and you&apos;ve already built the rough
+        You know your business cold, and you&apos;ve already built the rough
         version. A spreadsheet the whole operation runs on. An app you
         vibecoded that works&hellip; mostly. A prototype that proved the idea.
       </p>
       <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
         I&apos;m a 20-year product engineer who turns almost-software into
-        production software — for a price that&apos;s right on this page.
+        production software, for a price that&apos;s right on this page.
       </p>
       <p className="mt-4 text-sm text-zinc-500">
         4 startup exits. Previously engineering lead at Able.com and solutions

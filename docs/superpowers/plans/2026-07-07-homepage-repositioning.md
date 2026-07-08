@@ -1284,7 +1284,7 @@ export default function Work() {
           Past projects
         </h2>
         <p className="mt-2 text-base text-zinc-600 dark:text-zinc-400">
-          A few older projects — some sold, some still running.
+          A few older projects. Some sold, some still running.
         </p>
         <div className="mt-10">
           <ProjectGrid projects={pastProjects} columns="lg:grid-cols-3" />
@@ -1422,7 +1422,9 @@ Expected: feed file exists (`generateRssFeed.js` writes `./public/rss/feed.xml` 
 
 - [ ] **Step 16.3: Browser walkthrough (the Fletch test)**
 
-With dev server running, walk the page top to bottom as a prospect: hero → is-this-you → pricing (numbers legible) → deliverables → process → proof → FAQ → CTA. Check dark mode. Check a mobile viewport (375px). Check `/work`, `/about`, `/articles` from the nav. Check no orphaned links to `/#projects` or `/#testimonials` remain anywhere: `grep -rn "#projects\|#testimonials" src/`.
+With dev server running, walk the page top to bottom as a prospect: hero → is-this-you → pricing (numbers legible) → deliverables → process → proof → FAQ → CTA. Check dark mode. Check a mobile viewport (375px). Check `/work`, `/about`, `/articles` from the nav. Check no orphaned links to `/#projects` or `/#testimonials` remain anywhere: `grep -rn "#projects\|#testimonials" src/`. Also verify no em dashes remain in rendered copy (brand voice rule; code comments are exempt): `grep -rn "—" src/components src/pages/index.jsx src/pages/work.jsx` must return nothing, and `grep -n "—" src/data/*.js` must hit only comment lines.
+
+**Copy authority note (post-Task-12 amendments):** the components are authoritative for copy. After Task 12, user feedback drove sitewide copy amendments applied directly to components: all em dashes removed from rendered copy; the Build Sprint now explicitly includes the Roadmap & Risk Audit (Pricing blurb + bullet, Deliverables sprint list, Process stage 1); Proof client-story links restyled for WCAG contrast. Earlier plan listings for Tasks 4-11 are NOT updated to match; do not "reconcile" components back to them.
 
 - [ ] **Step 16.4: Commit any fixes; do NOT deploy**
 

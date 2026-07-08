@@ -2,7 +2,7 @@ const groups = [
   {
     package: 'From the Audit',
     items: [
-      'The written report itself — plain English, no jargon',
+      'The written report itself, in plain English with no jargon',
       'A prioritized fix list you can hand to any developer',
       'A 30-minute walkthrough call',
     ],
@@ -10,8 +10,9 @@ const groups = [
   {
     package: 'From a Build Sprint',
     items: [
+      'Everything from the audit, since every sprint starts with one',
       'A live production app at your domain',
-      'The code — in your GitHub account',
+      'The code, in your GitHub account',
       'Hosting and deployment set up in your accounts',
       'A plain-English handbook + Loom walkthroughs',
       'Security and backup baseline',
@@ -57,7 +58,7 @@ export function Deliverables() {
           </p>
           <p className="mt-2 text-sm text-zinc-300 dark:text-zinc-600">
             Your GitHub. Your hosting. Your domain. It&apos;s your software
-            from day one, and it stays yours — with everything you need to
+            from day one, and it stays yours, with everything you need to
             carry it forward, with or without me.
           </p>
         </div>
