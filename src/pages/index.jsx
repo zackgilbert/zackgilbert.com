@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 import { Container } from '@/components/Container'
 import { Hero } from '@/components/home/Hero'
+import { SelfQualification } from '@/components/home/SelfQualification'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       </Head>
       <Container className="mt-9">
         <Hero />
+        <SelfQualification />
         {/* Sections land here one task at a time; final order in Task 12 */}
       </Container>
     </>
