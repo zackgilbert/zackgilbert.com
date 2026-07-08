@@ -678,7 +678,8 @@ export function Pricing() {
           Pricing &amp; packages
         </h2>
         <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-          No &quot;contact us for pricing.&quot; This is what it costs.
+          Real prices, listed up front — so you can think it over before we
+          ever talk.
         </p>
       </div>
       <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3">
@@ -867,8 +868,9 @@ export function Deliverables() {
             Everything lives in your accounts.
           </p>
           <p className="mt-2 text-sm text-zinc-300 dark:text-zinc-600">
-            Your GitHub. Your hosting. Your domain. If we ever part ways, you
-            lose nothing. You&apos;re never hostage.
+            Your GitHub. Your hosting. Your domain. It&apos;s your software
+            from day one, and it stays yours — with everything you need to
+            carry it forward, with or without me.
           </p>
         </div>
       </div>
