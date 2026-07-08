@@ -52,7 +52,8 @@ export function Pricing() {
           Pricing &amp; packages
         </h2>
         <p className="mt-4 text-base text-zinc-600 dark:text-zinc-400">
-          No &quot;contact us for pricing.&quot; This is what it costs.
+          Real prices, listed up front — so you can think it over before we
+          ever talk.
         </p>
       </div>
       <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-3">

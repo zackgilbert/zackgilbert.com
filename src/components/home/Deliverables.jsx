@@ -56,8 +56,9 @@ export function Deliverables() {
             Everything lives in your accounts.
           </p>
           <p className="mt-2 text-sm text-zinc-300 dark:text-zinc-600">
-            Your GitHub. Your hosting. Your domain. If we ever part ways, you
-            lose nothing. You&apos;re never hostage.
+            Your GitHub. Your hosting. Your domain. It&apos;s your software
+            from day one, and it stays yours — with everything you need to
+            carry it forward, with or without me.
           </p>
         </div>
       </div>
