@@ -21,9 +21,11 @@ export function Footer() {
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                <NavLink href="/">Home</NavLink>
-                <NavLink href="/#projects">Projects</NavLink>
-                <NavLink href="/#testimonials">Testimonials</NavLink>
+                <NavLink href="/#pricing">Pricing</NavLink>
+                <NavLink href="/#process">How it works</NavLink>
+                <NavLink href="/work">Work</NavLink>
+                <NavLink href="/articles">Articles</NavLink>
+                <NavLink href="/about">About</NavLink>
                 <NavLink href="/manual">User Manual</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">

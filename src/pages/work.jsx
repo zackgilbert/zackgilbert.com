@@ -18,14 +18,17 @@ function LinkIcon(props) {
 
 function ProjectGrid({ projects, columns }) {
   return (
-    <ul role="list" className={`grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 ${columns}`}>
+    <ul role="list" className={`grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 ${columns ?? ''}`}>
       {projects.map((project) => (
         <Card as="li" key={project.name}>
           <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
             {project.logo ? (
               <Image src={project.logo} alt="" className="h-8 w-8 rounded-full" unoptimized />
             ) : (
-              <span className="text-lg font-bold text-zinc-600 dark:text-zinc-300">
+              <span
+                aria-hidden="true"
+                className="text-lg font-bold text-zinc-600 dark:text-zinc-300"
+              >
                 {project.name.charAt(0)}
               </span>
             )}
@@ -71,7 +74,7 @@ export default function Work() {
         <p className="mt-20 text-center">
           <a
             href="https://docs.google.com/spreadsheets/d/12vxRYLiDF-cSlhvIf2hHiJ6oE1ZQD79s41yMkZIYIS0/edit?usp=sharing"
-            className="px-10 py-3 underline hover:no-underline dark:text-gray-100"
+            className="px-10 py-3 underline hover:no-underline dark:text-zinc-100"
           >
             Full list of projects
           </a>
