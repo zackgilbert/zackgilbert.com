@@ -533,8 +533,10 @@ git commit -m "Add Hero section; rewrite homepage as incremental composer"
 
 Interactive checkboxes — client-side state only, purely tactile, no data
 collected or sent (per amended spec §2). Uses real `<input type="checkbox">`
-elements styled by `@tailwindcss/forms` (already in the Tailwind config).
-When two or more are checked, the closer line switches to an affirmative.
+elements styled via Tailwind's built-in `accent-*` utility (CSS
+`accent-color`) — `@tailwindcss/forms` is NOT installed in this repo and we
+don't add a dependency for one input. When two or more are checked, the
+closer line switches to an affirmative.
 
 ```jsx
 import { useState } from 'react'
@@ -569,7 +571,7 @@ export function SelfQualification() {
                   type="checkbox"
                   checked={checked[index]}
                   onChange={() => toggle(index)}
-                  className="mt-1 h-5 w-5 flex-none rounded border-zinc-300 text-teal-600 focus:ring-teal-500 dark:border-zinc-600 dark:bg-zinc-800"
+                  className="mt-1 h-5 w-5 flex-none cursor-pointer accent-teal-600"
                 />
                 <span>{item}</span>
               </label>
