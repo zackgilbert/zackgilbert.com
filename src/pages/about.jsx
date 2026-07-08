@@ -10,6 +10,8 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
+import { Testimonial } from '@/components/home/Testimonial'
+import { aboutTestimonials } from '@/data/testimonials'
 import portraitImage from '@/images/headshot.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -69,9 +71,9 @@ export default function About() {
                 I’m a business savvy, customer centric, product engineer and lead that is a hard working, adaptable, and growth minded team player. It’s very important to me to be a good listener and foster communication so I can help build strong relationships with customers, community, and team members.
               </p>
               <p>
-                My passion for blending technology with creativity always keeps the end user’s experience top of mind. As one of the founding members of both Technori and Chicago.concat(), and as a mentor at 1871, I’ve been involved with the Chicago tech and developer communities since 2010. I’ve had successful exits from 4 of my (SaaS) projects, was previously an Enterprise Solutions Engineer at Foursquare, where I helped . I most recently worked as Engineering Lead at Able.com, where I built and managed an engineering team of full-time and contractor-based developers from around the world to build while helping independent workers manage their finances and taxes.
+                My passion for blending technology with creativity always keeps the end user’s experience top of mind. As one of the founding members of both Technori and Chicago.concat(), and as a mentor at 1871, I’ve been involved with the Chicago tech and developer communities since 2010. I’ve had successful exits from 4 of my SaaS projects. I was previously an Enterprise Solutions Engineer at Foursquare, where I helped enterprise companies integrate and optimize their geo-location needs. Most recently I was the Engineering Lead at Able.com, where I built and managed a team of full-time and contract developers from around the world while helping independent workers manage their finances and taxes.
               </p>
-              <p>For more about what it’s like working with me, check refer to my <a href="/manual" className="underline hover:no-underline">User Manual</a>.</p>
+              <p>For more about what it’s like working with me, check out my <a href="/manual" className="underline hover:no-underline">User Manual</a>.</p>
             </div>
           </div>
           <div className="lg:pl-20">
@@ -96,6 +98,16 @@ export default function About() {
                 zack@zackgilbert.com
               </SocialLink>
             </ul>
+          </div>
+        </div>
+        <div className="mt-24 border-t border-zinc-100 pt-16 dark:border-zinc-700/40">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+            Kind words from people I&apos;ve worked with
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {aboutTestimonials.map((testimonial) => (
+              <Testimonial key={testimonial.author.name} testimonial={testimonial} />
+            ))}
           </div>
         </div>
       </Container>
