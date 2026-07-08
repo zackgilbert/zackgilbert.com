@@ -69,13 +69,15 @@ export const proofTestimonials = [
     },
   },
   // PENDING CLIENT APPROVAL — flip on when Will approves final copy.
-  // Place next to Partnership tier once live (move to its own named export).
+  // Place next to Partnership tier once live (move to its own named export);
+  // add imageUrl (photo import) before enabling.
   // {
   //   body: '[Will testimonial — draft under review]',
   //   author: { name: 'Will [last name]', title: '[title]', context: '[company]' },
   // },
   // PENDING CLIENT APPROVAL — flip on when Socrates approves final copy.
-  // Place next to Build Sprint / pricing once live.
+  // Place next to Build Sprint / pricing once live;
+  // add imageUrl (photo import) before enabling.
   // {
   //   body: '[Socrates testimonial — draft under review]',
   //   author: { name: 'Socrates [last name]', title: '[title]', context: '[company]' },
