@@ -29,7 +29,8 @@ export const seth = {
 }
 
 // Placed after the Process section — the "first call" partnership quote.
-// Intentionally shortened; see task note above.
+// Intentionally shortened: the quote ends at "…how often that can happen."
+// (the original's closing sentence about family is deliberately trimmed).
 export const vince = {
   body: "Zack is the first call when I need anything built, period. He is an amazingly talented, yet humble individual who listens more than he speaks and guides more than he corrects. He is able to get out of you what you want even when you can't quite tell him what it is. He is also extremely flexible and able to adapt and change at the drop of a hat, which if you have built anything from scratch you will know how often that can happen.",
   author: {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 const stages = [
   {
     label: 'Before we start',
-    body: 'A 30-minute call, then I look at your spreadsheet or app. Every engagement starts with the audit, so we both know exactly what we’re working with. The v1 scope gets fixed in writing before any money moves.',
+    body: 'A 30-minute call, then I look at your spreadsheet or app. Every build starts with the audit, so we both know exactly what we’re working with. The v1 scope gets fixed in writing before any money moves.',
   },
   {
     label: 'Weeks 1–8',
