@@ -1063,7 +1063,7 @@ const faqs = [
   {
     question: 'Do you work with existing developers or teams?',
     answer:
-      'Yes. Cleanup engagements often mean working alongside whoever (or whatever AI tool) built the first version. I’m rude to code, never to people.',
+      'Yes. Cleanup engagements often mean building on whatever — or whoever — came before. And no judgment about what I find: getting a first version working at all is the hard part. My job is making it solid.',
   },
   {
     question: 'What happens if we stop working together?',
