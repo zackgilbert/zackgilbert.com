@@ -6,8 +6,7 @@ import {
   TwitterIcon,
   BlueskyIcon,
 } from '@/components/SocialIcons'
-
-const CALENDLY_URL = 'https://calendly.com/zackgilbert/30-min'
+import { CALENDLY_URL } from '@/data/site'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -32,7 +31,7 @@ export function Hero() {
         I&apos;m a 20-year product engineer who turns almost-software into
         production software — for a price that&apos;s right on this page.
       </p>
-      <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-500">
+      <p className="mt-4 text-sm text-zinc-500">
         4 startup exits. Previously engineering lead at Able.com and solutions
         engineer at Foursquare.
       </p>
@@ -41,7 +40,7 @@ export function Hero() {
           href="#pricing"
           className="rounded-md bg-zinc-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
         >
-          See pricing ↓
+          See pricing <span aria-hidden="true">↓</span>
         </a>
         <a
           href={CALENDLY_URL}

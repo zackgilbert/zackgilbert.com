@@ -38,6 +38,7 @@ export function SelfQualification() {
           ))}
         </ul>
         <p
+          aria-live="polite"
           className={
             count >= 2
               ? 'mt-8 text-base font-semibold text-teal-600 dark:text-teal-400'
@@ -48,7 +49,7 @@ export function SelfQualification() {
             ? 'That’s a match — we should talk.'
             : 'If you checked two or more, we should talk.'}
         </p>
-        <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-500">
+        <p className="mt-2 text-sm text-zinc-500">
           Looking for a technical cofounder or a full dev team? I&apos;m
           probably not your guy — but book a call anyway and I&apos;ll point
           you in the right direction.
