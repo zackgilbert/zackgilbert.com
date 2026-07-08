@@ -6,6 +6,7 @@ import { SelfQualification } from '@/components/home/SelfQualification'
 import { Pricing } from '@/components/home/Pricing'
 import { Deliverables } from '@/components/home/Deliverables'
 import { Process } from '@/components/home/Process'
+import { Proof } from '@/components/home/Proof'
 import { Testimonial } from '@/components/home/Testimonial'
 import { emily, seth, vince } from '@/data/testimonials'
 import { generateRssFeed } from '@/lib/generateRssFeed'
@@ -39,6 +40,7 @@ export default function Home() {
         <AdjacentTestimonial testimonial={seth} />
         <Process />
         <AdjacentTestimonial testimonial={vince} />
+        <Proof />
         {/* Sections land here one task at a time; final order in Task 12 */}
       </Container>
     </>
