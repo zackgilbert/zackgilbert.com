@@ -5,8 +5,9 @@ import { Hero } from '@/components/home/Hero'
 import { SelfQualification } from '@/components/home/SelfQualification'
 import { Pricing } from '@/components/home/Pricing'
 import { Deliverables } from '@/components/home/Deliverables'
+import { Process } from '@/components/home/Process'
 import { Testimonial } from '@/components/home/Testimonial'
-import { emily, seth } from '@/data/testimonials'
+import { emily, seth, vince } from '@/data/testimonials'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 
 function AdjacentTestimonial({ testimonial }) {
@@ -36,6 +37,8 @@ export default function Home() {
         <AdjacentTestimonial testimonial={emily} />
         <Deliverables />
         <AdjacentTestimonial testimonial={seth} />
+        <Process />
+        <AdjacentTestimonial testimonial={vince} />
         {/* Sections land here one task at a time; final order in Task 12 */}
       </Container>
     </>
