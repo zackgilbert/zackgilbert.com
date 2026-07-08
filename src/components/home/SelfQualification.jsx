@@ -30,7 +30,7 @@ export function SelfQualification() {
                   type="checkbox"
                   checked={checked[index]}
                   onChange={() => toggle(index)}
-                  className="mt-1 h-5 w-5 flex-none rounded border-zinc-300 text-teal-600 focus:ring-teal-500 dark:border-zinc-600 dark:bg-zinc-800"
+                  className="mt-1 h-5 w-5 flex-none cursor-pointer accent-teal-600"
                 />
                 <span>{item}</span>
               </label>
