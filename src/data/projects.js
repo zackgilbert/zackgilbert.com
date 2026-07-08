@@ -91,7 +91,7 @@ export const pastProjects = [
     description:
       'A newsletter segmentation SaaS that connected Stripe sales to Mailchimp subscribers. Sold. Built in Ruby on Rails.',
     link: {
-      href: 'https://web.archive.org/web/20200511225258/https://www.fixtail.com/',
+      href: 'https://web.archive.org/web/20200511225258/https:/www.fixtail.com/',
       label: 'fixtail.com',
     },
     logo: projectFixtail,
