@@ -531,9 +531,14 @@ git commit -m "Add Hero section; rewrite homepage as incremental composer"
 
 - [ ] **Step 5.1: Create `src/components/home/SelfQualification.jsx`**
 
-Static visual checkboxes — no interactivity (spec Out of Scope).
+Interactive checkboxes — client-side state only, purely tactile, no data
+collected or sent (per amended spec §2). Uses real `<input type="checkbox">`
+elements styled by `@tailwindcss/forms` (already in the Tailwind config).
+When two or more are checked, the closer line switches to an affirmative.
 
 ```jsx
+import { useState } from 'react'
+
 const checklist = [
   'Your business runs on a spreadsheet only you fully understand',
   'You built something with AI tools (Lovable, Replit, Cursor) and it works — but you’re afraid to touch it',
@@ -542,16 +547,14 @@ const checklist = [
   'You know exactly what the software should do — you just can’t build it yourself',
 ]
 
-function CheckboxIcon() {
-  return (
-    <span
-      aria-hidden="true"
-      className="mt-1 flex h-5 w-5 flex-none items-center justify-center rounded border border-zinc-300 dark:border-zinc-600"
-    />
-  )
-}
-
 export function SelfQualification() {
+  const [checked, setChecked] = useState(() => checklist.map(() => false))
+  const count = checked.filter(Boolean).length
+
+  function toggle(index) {
+    setChecked((prev) => prev.map((value, i) => (i === index ? !value : value)))
+  }
+
   return (
     <section className="mt-20 border-t border-zinc-300 py-16 dark:border-zinc-700">
       <div className="mx-auto max-w-2xl">
@@ -559,15 +562,30 @@ export function SelfQualification() {
           Is this you?
         </h2>
         <ul className="mt-8 space-y-4">
-          {checklist.map((item) => (
-            <li key={item} className="flex gap-3 text-base text-zinc-600 dark:text-zinc-400">
-              <CheckboxIcon />
-              <span>{item}</span>
+          {checklist.map((item, index) => (
+            <li key={item}>
+              <label className="flex cursor-pointer gap-3 text-base text-zinc-600 dark:text-zinc-400">
+                <input
+                  type="checkbox"
+                  checked={checked[index]}
+                  onChange={() => toggle(index)}
+                  className="mt-1 h-5 w-5 flex-none rounded border-zinc-300 text-teal-600 focus:ring-teal-500 dark:border-zinc-600 dark:bg-zinc-800"
+                />
+                <span>{item}</span>
+              </label>
             </li>
           ))}
         </ul>
-        <p className="mt-8 text-base font-semibold text-zinc-900 dark:text-zinc-100">
-          If you checked two or more, we should talk.
+        <p
+          className={
+            count >= 2
+              ? 'mt-8 text-base font-semibold text-teal-600 dark:text-teal-400'
+              : 'mt-8 text-base font-semibold text-zinc-900 dark:text-zinc-100'
+          }
+        >
+          {count >= 2
+            ? 'That’s a match — we should talk.'
+            : 'If you checked two or more, we should talk.'}
         </p>
         <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-500">
           Looking for a technical cofounder or a full dev team? I&apos;m
@@ -745,7 +763,7 @@ git commit -m "Add pricing section with three published packages"
 
 - [ ] **Step 7.1: Visual checkpoint of the partial page**
 
-Run `npm run dev`, open `http://localhost:8080` (Playwright MCP browser tools per user preference). Verify: hero headline renders, checklist shows all five items, three price cards show $1,500 / $5,000 / $2,500, Emily's quote appears after pricing, and the `#pricing` anchor from the hero CTA scrolls. Check dark mode.
+Run `npm run dev`, open `http://localhost:8080` (Playwright MCP browser tools per user preference). Verify: hero headline renders, checklist shows all five items and the checkboxes actually toggle (checking two switches the closer line to "That's a match — we should talk."), three price cards show $1,500 / $5,000 / $2,500, Emily's quote appears after pricing, and the `#pricing` anchor from the hero CTA scrolls. Check dark mode.
 
 ---
 

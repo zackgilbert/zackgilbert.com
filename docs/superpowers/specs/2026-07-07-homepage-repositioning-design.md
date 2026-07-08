@@ -66,7 +66,12 @@ pricing ↓" (anchor link) and "Book a 30-min call" (Calendly).
 
 ### 2. Self-qualification checklist
 
-Visual checkboxes (static, no interactivity required):
+Interactive checkboxes (client-side state only — toggling is purely tactile,
+no data is collected or sent). When two or more are checked, the closer line
+switches to an affirmative "That's a match — we should talk." The full
+self-diagnostic tool (scoring, routing, email capture) remains out of scope.
+
+Checklist items:
 
 - Your business runs on a spreadsheet only you fully understand
 - You built something with AI tools (Lovable, Replit, Cursor) and it works — but you're afraid to touch it
@@ -198,7 +203,8 @@ not part of the sales narrative — but stays in the footer: it's a useful
 
 ## Out of Scope (for now)
 
-- Interactive self-diagnostic tool (static checklist ships first)
+- Full self-diagnostic tool (scoring, routing, email capture) — the checklist
+  ships with simple toggleable checkboxes only
 - Speaking page, staff photos (2 Bobs ideas — future iteration)
 - Blog/content strategy changes
 - Visual redesign of the overall theme (reuse existing Tailwind components
